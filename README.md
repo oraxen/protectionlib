@@ -41,3 +41,8 @@ ProtectionLib.canBreak(player,location);
 ```yaml
    softdepend: [ WorldGuard, Towny, Factions ]
 ```
+
+# Supported plugins
+- WorldGuard
+- Towny
+- FactionsUUID
