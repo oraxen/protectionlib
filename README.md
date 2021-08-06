@@ -13,7 +13,7 @@ ProtectionLib introduces two methods to check if a player can build or break blo
 
 ```java
 ProtectionLib.canBuild(player,location);
-        ProtectionLib.canBreak(player,location);
+ProtectionLib.canBreak(player,location);
 ```
 
 # Get ProtectionLib
