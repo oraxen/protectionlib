@@ -1,5 +1,6 @@
 package io.th0rgal.protectionlib;
 
+import io.th0rgal.protectionlib.compatibilities.FactionsUuidCompat;
 import io.th0rgal.protectionlib.compatibilities.TownyCompat;
 import io.th0rgal.protectionlib.compatibilities.WorldGuardCompat;
 import org.bukkit.Bukkit;
@@ -17,6 +18,7 @@ public class ProtectionLib {
     public static void init() {
         handleCompatibility("WorldGuard", WorldGuardCompat::new);
         handleCompatibility("Towny", TownyCompat::new);
+        handleCompatibility("Factions", FactionsUuidCompat::new);
     }
 
     public static boolean canBuild(Player player, Location target) {
