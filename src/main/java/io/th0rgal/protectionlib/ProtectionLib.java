@@ -4,6 +4,7 @@ import io.th0rgal.protectionlib.compatibilities.FactionsUuidCompat;
 import io.th0rgal.protectionlib.compatibilities.LandsCompat;
 import io.th0rgal.protectionlib.compatibilities.TownyCompat;
 import io.th0rgal.protectionlib.compatibilities.WorldGuardCompat;
+import io.th0rgal.protectionlib.compatibilities.GriefDefenderCompat;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.entity.Player;
@@ -21,6 +22,7 @@ public class ProtectionLib {
         handleCompatibility("Towny", TownyCompat::new);
         handleCompatibility("Factions", FactionsUuidCompat::new);
         handleCompatibility("Lands", LandsCompat::new);
+        handleCompatibility("GriefDefender", GriefDefenderCompat::new);
     }
 
     public static boolean canBuild(Player player, Location target) {
