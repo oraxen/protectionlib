@@ -39,10 +39,11 @@ ProtectionLib.canBreak(player,location);
 4) Add softdepend to plugin.yml
 
 ```yaml
-   softdepend: [ WorldGuard, Towny, Factions ]
+   softdepend: [ WorldGuard, Towny, Factions, Lands ]
 ```
 
 # Supported plugins
-- WorldGuard
-- Towny
-- FactionsUUID
+- [WorldGuard](https://dev.bukkit.org/projects/worldguard) (Free)
+- [Towny](https://www.spigotmc.org/resources/towny-advanced.72694/) (Free)
+- [FactionsUUID](https://www.spigotmc.org/resources/factionsuuid.1035/) (Paid)
+- [Lands](https://www.spigotmc.org/resources/lands-land-claim-plugin-grief-prevention-protection-gui-management-nations-wars-1-17-support.53313/) (Paid)

@@ -1,6 +1,7 @@
 package io.th0rgal.protectionlib;
 
 import io.th0rgal.protectionlib.compatibilities.FactionsUuidCompat;
+import io.th0rgal.protectionlib.compatibilities.LandsCompat;
 import io.th0rgal.protectionlib.compatibilities.TownyCompat;
 import io.th0rgal.protectionlib.compatibilities.WorldGuardCompat;
 import org.bukkit.Bukkit;
@@ -19,26 +20,22 @@ public class ProtectionLib {
         handleCompatibility("WorldGuard", WorldGuardCompat::new);
         handleCompatibility("Towny", TownyCompat::new);
         handleCompatibility("Factions", FactionsUuidCompat::new);
+        handleCompatibility("Lands", LandsCompat::new);
     }
 
     public static boolean canBuild(Player player, Location target) {
-        for (ProtectionCompatibility compatibility : compatibilities)
-            if (!compatibility.canBuild(player, target))
-                return false;
-        return true;
+        return compatibilities.stream().allMatch(compatibility -> compatibility.canBuild(player, target));
     }
 
     public static boolean canBreak(Player player, Location target) {
-        for (ProtectionCompatibility compatibility : compatibilities)
-            if (!compatibility.canBreak(player, target))
-                return false;
-        return true;
+        return compatibilities.stream().allMatch(compatibility -> compatibility.canBreak(player, target));
     }
 
     private static void handleCompatibility(String pluginName, CompatibilityConstructor constructor) {
         Plugin plugin = Bukkit.getPluginManager().getPlugin(pluginName);
-        if (plugin != null)
+        if (plugin != null) {
             compatibilities.add(constructor.create(plugin));
+        }
     }
 
     @FunctionalInterface

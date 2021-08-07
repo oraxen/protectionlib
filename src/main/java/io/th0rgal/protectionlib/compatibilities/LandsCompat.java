@@ -1,23 +1,19 @@
 package io.th0rgal.protectionlib.compatibilities;
 
-import com.massivecraft.factions.Board;
-import com.massivecraft.factions.FLocation;
-import com.massivecraft.factions.FPlayers;
-import com.massivecraft.factions.perms.PermissibleAction;
 import io.th0rgal.protectionlib.ProtectionCompatibility;
+import me.angeschossen.lands.api.integration.LandsIntegration;
+import me.angeschossen.lands.api.land.Land;
 import org.bukkit.Location;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.Plugin;
 
-public class FactionsUuidCompat extends ProtectionCompatibility {
+public class LandsCompat extends ProtectionCompatibility {
 
-    private final FPlayers fPlayers;
-    private final Board board;
+    private static LandsIntegration landsIntegration;
 
-    public FactionsUuidCompat(Plugin plugin) {
+    public LandsCompat(Plugin plugin) {
         super(plugin);
-        this.fPlayers = FPlayers.getInstance();
-        this.board = Board.getInstance();
+        landsIntegration = new LandsIntegration(plugin);
     }
 
     /**
@@ -27,8 +23,8 @@ public class FactionsUuidCompat extends ProtectionCompatibility {
      */
     @Override
     public boolean canBuild(Player player, Location target) {
-        return board.getFactionAt(new FLocation(target))
-                .hasAccess(fPlayers.getByPlayer(player), PermissibleAction.BUILD);
+        Land land = landsIntegration.getLand(target);
+        return land == null || land.getTrustedPlayers().stream().anyMatch(playerUUID -> playerUUID.equals(player.getUniqueId()));
     }
 
     /**
@@ -38,7 +34,8 @@ public class FactionsUuidCompat extends ProtectionCompatibility {
      */
     @Override
     public boolean canBreak(Player player, Location target) {
-        return board.getFactionAt(new FLocation(target))
-                .hasAccess(fPlayers.getByPlayer(player), PermissibleAction.DESTROY);
+        Land land = landsIntegration.getLand(target);
+        return land == null || land.getTrustedPlayers().stream().anyMatch(playerUUID -> playerUUID.equals(player.getUniqueId()));
     }
+
 }

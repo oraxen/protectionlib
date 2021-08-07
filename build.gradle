@@ -8,7 +8,7 @@ plugins {
 apply plugin: 'maven-publish'
 
 group 'io.th0rgal'
-def pluginVersion = "1.0.1"
+def pluginVersion = "1.0.2"
 ext.jitpackGroup = group + ".protectionlib"
 ext.jitpackVersion = 'main-' + pluginVersion
 version = pluginVersion
@@ -32,6 +32,7 @@ dependencies {
         exclude group: 'org.spongepowered', module: 'configurate-hocon'
         exclude group: 'com.mojang', module: 'brigadier'
     }
+    compileOnly "com.github.angeschossen:LandsAPI:5.13.0"
     //compileOnly 'com.massivecraft:Factions:1.6.9.5-U0.5.23'
 }
 
