@@ -5,7 +5,10 @@
 </h1>
 
 
-<h4 align="center">❌ A unified library for WorldGuard, Towny, Factions and other protections API</h4>
+<h4 align="center">
+    ❌ A unified library for WorldGuard, Towny, Factions and other protections API</h4>
+    [![CodeFactor](https://www.codefactor.io/repository/github/oraxen/protectionlib/badge)](https://www.codefactor.io/repository/github/oraxen/protectionlib)
+
 
 # What's new?
 
