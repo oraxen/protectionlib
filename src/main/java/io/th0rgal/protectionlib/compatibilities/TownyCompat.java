@@ -13,12 +13,22 @@ public class TownyCompat extends ProtectionCompatibility {
         super(plugin);
     }
 
+    /**
+     * @param player Player looking to place a block
+     * @param target Place where the player seeks to place a block
+     * @return true if he can put the block
+     */
     @Override
     public boolean canBuild(Player player, Location target) {
         return PlayerCacheUtil.getCachePermission(player, target, target.getBlock().getType(),
                 TownyPermission.ActionType.BUILD);
     }
 
+    /**
+     * @param player Player looking to break a block
+     * @param target Place where the player seeks to break a block
+     * @return true if he can break the block
+     */
     @Override
     public boolean canBreak(Player player, Location target) {
         return PlayerCacheUtil.getCachePermission(player, target, target.getBlock().getType(),

@@ -22,6 +22,11 @@ public class WorldGuardCompat extends ProtectionCompatibility {
         regionContainer = worldGuard.getPlatform().getRegionContainer();
     }
 
+    /**
+     * @param player Player looking to place a block
+     * @param target Place where the player seeks to place a block
+     * @return true if he can put the block
+     */
     @Override
     public boolean canBuild(Player player, Location target) {
         LocalPlayer localPlayer = ((WorldGuardPlugin) getPlugin()).wrapPlayer(player);
@@ -32,6 +37,11 @@ public class WorldGuardCompat extends ProtectionCompatibility {
                 );
     }
 
+    /**
+     * @param player Player looking to break a block
+     * @param target Place where the player seeks to break a block
+     * @return true if he can break the block
+     */
     @Override
     public boolean canBreak(Player player, Location target) {
         LocalPlayer localPlayer = ((WorldGuardPlugin) getPlugin()).wrapPlayer(player);
