@@ -41,7 +41,7 @@ ProtectionLib.canBreak(player,location);
 3) Init ProtectionLib in your plugin onEnable()
 
 ```groovy
-   ProtectionLib.init();
+   ProtectionLib.init(this);
 ```
 
 4) Add softdepend to plugin.yml

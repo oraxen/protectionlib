@@ -6,14 +6,15 @@ import me.angeschossen.lands.api.land.Land;
 import org.bukkit.Location;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.Plugin;
+import org.bukkit.plugin.java.JavaPlugin;
 
 public class LandsCompat extends ProtectionCompatibility {
 
     private static LandsIntegration landsIntegration;
 
-    public LandsCompat(Plugin plugin) {
-        super(plugin);
-        landsIntegration = new LandsIntegration(plugin);
+    public LandsCompat(JavaPlugin mainPlugin, Plugin plugin) {
+        super(mainPlugin, plugin);
+        landsIntegration = new LandsIntegration(mainPlugin);
     }
 
     /**
