@@ -1,6 +1,7 @@
 package io.th0rgal.protectionlib.compatibilities;
 
 import io.th0rgal.protectionlib.ProtectionCompatibility;
+import io.th0rgal.protectionlib.ProtectionLib;
 import me.angeschossen.lands.api.integration.LandsIntegration;
 import me.angeschossen.lands.api.land.Land;
 import org.bukkit.Location;
@@ -13,7 +14,7 @@ public class LandsCompat extends ProtectionCompatibility {
 
     public LandsCompat(Plugin plugin) {
         super(plugin);
-        landsIntegration = new LandsIntegration(plugin);
+        landsIntegration = new LandsIntegration(ProtectionLib.getJavaPlugin());
     }
 
     /**
