@@ -8,7 +8,7 @@ plugins {
 apply plugin: 'maven-publish'
 
 group 'io.th0rgal'
-def pluginVersion = "1.1.0"
+def pluginVersion = "1.1.1"
 ext.jitpackGroup = group + ".protectionlib"
 ext.jitpackVersion = 'main-' + pluginVersion
 version = pluginVersion
