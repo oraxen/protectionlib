@@ -6,7 +6,6 @@ plugins {
     id 'com.github.johnrengelman.shadow' version '7.0.0'
 }
 
-apply plugin: 'com.github.johnrengelman.shadow'
 apply plugin: 'maven-publish'
 
 group 'io.th0rgal'
@@ -39,7 +38,8 @@ dependencies {
     //compileOnly 'com.massivecraft:Factions:1.6.9.5-U0.5.23'
 }
 
-compileJava.dependsOn clean,shadowJar
+compileJava.dependsOn clean
+build.dependsOn shadowJar
 
 shadowJar {
     relocate 'com.flowpowered', 'com.griefdefender.lib.flowpowered'
