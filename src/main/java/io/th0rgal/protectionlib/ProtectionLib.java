@@ -8,6 +8,7 @@ import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.Plugin;
+import org.bukkit.plugin.java.JavaPlugin;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -15,8 +16,10 @@ import java.util.Set;
 public class ProtectionLib {
 
     private final static Set<ProtectionCompatibility> compatibilities = new HashSet<>();
+    private static JavaPlugin javaPlugin;
 
-    public static void init() {
+    public static void init(JavaPlugin plugin) {
+        javaPlugin = plugin;
         handleCompatibility("WorldGuard", WorldGuardCompat::new);
         handleCompatibility("Towny", TownyCompat::new);
         handleCompatibility("Factions", FactionsUuidCompat::new);
@@ -38,9 +41,13 @@ public class ProtectionLib {
         }
     }
 
+
     @FunctionalInterface
     private interface CompatibilityConstructor {
         ProtectionCompatibility create(Plugin plugin);
     }
 
+    public static JavaPlugin getJavaPlugin() {
+        return javaPlugin;
+    }
 }
