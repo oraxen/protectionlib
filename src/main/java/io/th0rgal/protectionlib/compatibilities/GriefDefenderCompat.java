@@ -15,8 +15,8 @@ import org.bukkit.plugin.Plugin;
 
 public class GriefDefenderCompat extends ProtectionCompatibility {
 
-    public GriefDefenderCompat(Plugin plugin) {
-        super(plugin);
+    public GriefDefenderCompat(JavaPlugin mainPlugin, Plugin plugin) {
+        super(mainPlugin, plugin);
     }
 
     /**
