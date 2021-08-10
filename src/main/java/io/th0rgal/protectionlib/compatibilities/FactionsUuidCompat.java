@@ -8,14 +8,15 @@ import io.th0rgal.protectionlib.ProtectionCompatibility;
 import org.bukkit.Location;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.Plugin;
+import org.bukkit.plugin.java.JavaPlugin;
 
 public class FactionsUuidCompat extends ProtectionCompatibility {
 
     private final FPlayers fPlayers;
     private final Board board;
 
-    public FactionsUuidCompat(Plugin plugin) {
-        super(plugin);
+    public FactionsUuidCompat(JavaPlugin mainPlugin, Plugin plugin) {
+        super(mainPlugin, plugin);
         this.fPlayers = FPlayers.getInstance();
         this.board = Board.getInstance();
     }

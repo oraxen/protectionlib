@@ -9,6 +9,7 @@ import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.Plugin;
+import org.bukkit.plugin.java.JavaPlugin;
 
 import java.util.HashSet;
 import java.util.Set;
@@ -33,16 +34,16 @@ public class ProtectionLib {
         return compatibilities.stream().allMatch(compatibility -> compatibility.canBreak(player, target));
     }
 
-    private static void handleCompatibility(String pluginName, CompatibilityConstructor constructor) {
+    private static void handleCompatibility(String pluginName, JavaPlugin mainPlugin, CompatibilityConstructor constructor) {
         Plugin plugin = Bukkit.getPluginManager().getPlugin(pluginName);
         if (plugin != null) {
-            compatibilities.add(constructor.create(plugin));
+            compatibilities.add(constructor.create(mainPlugin, plugin));
         }
     }
 
     @FunctionalInterface
     private interface CompatibilityConstructor {
-        ProtectionCompatibility create(Plugin plugin);
+        ProtectionCompatibility create(JavaPlugin mainPlugin, Plugin plugin);
     }
 
 }

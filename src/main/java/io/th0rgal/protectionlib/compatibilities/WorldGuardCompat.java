@@ -10,14 +10,15 @@ import io.th0rgal.protectionlib.ProtectionCompatibility;
 import org.bukkit.Location;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.Plugin;
+import org.bukkit.plugin.java.JavaPlugin;
 
 public class WorldGuardCompat extends ProtectionCompatibility {
 
     private final RegionContainer regionContainer;
     private final WorldGuard worldGuard;
 
-    public WorldGuardCompat(Plugin plugin) {
-        super(plugin);
+    public WorldGuardCompat(JavaPlugin mainPlugin, Plugin plugin) {
+        super(mainPlugin, plugin);
         worldGuard = WorldGuard.getInstance();
         regionContainer = worldGuard.getPlatform().getRegionContainer();
     }

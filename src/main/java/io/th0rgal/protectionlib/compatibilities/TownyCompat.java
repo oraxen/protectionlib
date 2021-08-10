@@ -6,11 +6,12 @@ import io.th0rgal.protectionlib.ProtectionCompatibility;
 import org.bukkit.Location;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.Plugin;
+import org.bukkit.plugin.java.JavaPlugin;
 
 public class TownyCompat extends ProtectionCompatibility {
 
-    public TownyCompat(Plugin plugin) {
-        super(plugin);
+    public TownyCompat(JavaPlugin mainPlugin, Plugin plugin) {
+        super(mainPlugin, plugin);
     }
 
     /**
