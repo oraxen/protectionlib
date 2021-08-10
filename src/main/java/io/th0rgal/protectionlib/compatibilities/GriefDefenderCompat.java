@@ -12,6 +12,7 @@ import io.th0rgal.protectionlib.ProtectionCompatibility;
 import org.bukkit.Location;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.Plugin;
+import org.bukkit.plugin.java.JavaPlugin;
 
 public class GriefDefenderCompat extends ProtectionCompatibility {
 
@@ -26,8 +27,8 @@ public class GriefDefenderCompat extends ProtectionCompatibility {
      */
     @Override
     public boolean canBuild(Player player, Location target) {
-        final Vector3i vector = Vector3i.from(target.getBlockX(), target.getBlockY(), target.getBlockZ());
-        final Claim claim = GriefDefender.getCore().getClaimManager(target.getWorld().getUID()).getClaimAt(vector);
+        final Claim claim = GriefDefender.getCore().getClaimManager(target.getWorld().getUID())
+                .getClaimAt(Vector3i.from(target.getBlockX(), target.getBlockY(), target.getBlockZ()));
         final Subject subject = GriefDefender.getCore().getSubject(player.getUniqueId().toString());
         final Tristate canBuild = GriefDefender.getPermissionManager().getActiveFlagPermissionValue(claim, subject,
                 Flags.BLOCK_PLACE, player, target.getBlock(), null, true);
@@ -42,8 +43,8 @@ public class GriefDefenderCompat extends ProtectionCompatibility {
      */
     @Override
     public boolean canBreak(Player player, Location target) {
-        final Vector3i vector = Vector3i.from(target.getBlockX(), target.getBlockY(), target.getBlockZ());
-        final Claim claim = GriefDefender.getCore().getClaimManager(target.getWorld().getUID()).getClaimAt(vector);
+        final Claim claim = GriefDefender.getCore().getClaimManager(target.getWorld().getUID())
+                .getClaimAt(Vector3i.from(target.getBlockX(), target.getBlockY(), target.getBlockZ()));
         final Subject subject = GriefDefender.getCore().getSubject(player.getUniqueId().toString());
         final Tristate canBreak = GriefDefender.getPermissionManager().getActiveFlagPermissionValue(claim, subject,
                 Flags.BLOCK_BREAK, player, target.getBlock(), null, true);
