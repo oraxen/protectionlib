@@ -18,11 +18,11 @@ public class ProtectionLib {
     private final static Set<ProtectionCompatibility> compatibilities = new HashSet<>();
 
     public static void init() {
-        handleCompatibility("WorldGuard", WorldGuardCompat::new);
-        handleCompatibility("Towny", TownyCompat::new);
-        handleCompatibility("Factions", FactionsUuidCompat::new);
-        handleCompatibility("Lands", LandsCompat::new);
-        handleCompatibility("GriefDefender", GriefDefenderCompat::new);
+        handleCompatibility("WorldGuard", plugin, WorldGuardCompat::new);
+        handleCompatibility("Towny", plugin, TownyCompat::new);
+        handleCompatibility("Factions", plugin, FactionsUuidCompat::new);
+        handleCompatibility("Lands", plugin, LandsCompat::new);
+        handleCompatibility("GriefDefender", plugin, GriefDefenderCompat::new);
     }
 
     public static boolean canBuild(Player player, Location target) {
