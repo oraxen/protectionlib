@@ -18,7 +18,7 @@ public class ProtectionLib {
 
     private final static Set<ProtectionCompatibility> compatibilities = new HashSet<>();
 
-    public static void init() {
+    public static void init(JavaPlugin plugin) {
         handleCompatibility("WorldGuard", plugin, WorldGuardCompat::new);
         handleCompatibility("Towny", plugin, TownyCompat::new);
         handleCompatibility("Factions", plugin, FactionsUuidCompat::new);
