@@ -47,7 +47,7 @@ ProtectionLib.canBreak(player,location);
 4) Add softdepend to plugin.yml
 
 ```yaml
-   softdepend: [ WorldGuard, Towny, Factions, Lands ]
+   softdepend: [ WorldGuard, Towny, Factions, Lands, SuperiorSkyblock2 ]
 ```
 
 # Supported plugins
