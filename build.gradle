@@ -8,32 +8,34 @@ plugins {
 apply plugin: 'maven-publish'
 
 group 'io.th0rgal'
-def pluginVersion = "1.1.1"
-ext.jitpackGroup = group + ".protectionlib"
+def pluginVersion = '1.1.2'
+ext.jitpackGroup = group + '.protectionlib'
 ext.jitpackVersion = 'main-' + pluginVersion
 version = pluginVersion
 
 repositories {
     mavenCentral()
     mavenLocal()
-    maven { url "https://hub.spigotmc.org/nexus/content/repositories/snapshots/" }
+
+    maven { url 'https://hub.spigotmc.org/nexus/content/repositories/snapshots/' }
     maven { url "https://ci.ender.zone/plugin/repository/everything/" }
     maven { url "https://maven.enginehub.org/repo/" }
     maven { url "https://jitpack.io" }
 }
 
 dependencies {
-    compileOnly group: "org.spigotmc", name: "spigot-api", version: "1.17.1-R0.1-SNAPSHOT"
-    compileOnly group: "com.sk89q.worldguard", name: "worldguard-bukkit", version: "7.0.5"
-    compileOnly 'com.github.TownyAdvanced:Towny:0.97.0.0'
+    compileOnly group: 'org.spigotmc', name: 'spigot-api', version: '1.18-R0.1-SNAPSHOT'
+    compileOnly group: 'com.sk89q.worldguard', name: 'worldguard-bukkit', version: '7.0.5'
+    compileOnly group: 'com.github.TownyAdvanced', name: 'Towny', version: '0.97.0.0'
+    compileOnly group: 'com.github.angeschossen', name: 'LandsAPI', version: '5.13.0'
+
     compileOnly('com.massivecraft:Factions:1.6.9.5-U0.5.23') {
+        exclude group: 'io.papermc', module: 'paperlib'
         exclude group: 'org.kitteh', module: 'paste-gg-api'
         exclude group: 'com.darkblade12', module: 'particleeffect'
         exclude group: 'org.spongepowered', module: 'configurate-hocon'
         exclude group: 'com.mojang', module: 'brigadier'
     }
-    compileOnly "com.github.angeschossen:LandsAPI:5.13.0"
-    //compileOnly 'com.massivecraft:Factions:1.6.9.5-U0.5.23'
 }
 
 compileJava.dependsOn clean
