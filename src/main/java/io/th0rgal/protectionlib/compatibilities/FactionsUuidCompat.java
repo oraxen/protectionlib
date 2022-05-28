@@ -32,8 +32,7 @@ public class FactionsUuidCompat extends ProtectionCompatibility {
      */
     @Override
     public boolean canBuild(Player player, Location target) {
-        return board.getFactionAt(new FLocation(target))
-                .hasAccess(fPlayers.getByPlayer(player), PermissibleActions.BUILD, new FLocation(target));
+        return FactionsUuidCompatFix.canBuild(board, fPlayers, player, target);
     }
 
     /**
@@ -43,7 +42,6 @@ public class FactionsUuidCompat extends ProtectionCompatibility {
      */
     @Override
     public boolean canBreak(Player player, Location target) {
-        return board.getFactionAt(new FLocation(target))
-                .hasAccess(fPlayers.getByPlayer(player), PermissibleActions.DESTROY, new FLocation(target));
+        return FactionsUuidCompatFix.canBreak(board, fPlayers, player, target);
     }
 }
