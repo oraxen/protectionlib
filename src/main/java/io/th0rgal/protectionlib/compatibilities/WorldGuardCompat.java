@@ -65,4 +65,17 @@ public class WorldGuardCompat extends ProtectionCompatibility {
                 || worldGuard.getPlatform().getSessionManager()
                 .hasBypass(localPlayer, BukkitAdapter.adapt(player.getWorld()));
     }
+
+    /**
+     * @param player Player trying to use an item
+     * @param target Place where the player tried to use an item
+     * @return true if player can use the item
+     */
+    @Override
+    public boolean canUse(Player player, Location target) {
+        LocalPlayer localPlayer = ((WorldGuardPlugin) getPlugin()).wrapPlayer(player);
+        return regionContainer.createQuery().testBuild(BukkitAdapter.adapt(target), localPlayer, Flags.USE)
+                || worldGuard.getPlatform().getSessionManager()
+                .hasBypass(localPlayer, BukkitAdapter.adapt(player.getWorld()));
+    }
 }

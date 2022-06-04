@@ -44,6 +44,17 @@ public class TownyCompat extends ProtectionCompatibility {
     @Override
     public boolean canInteract(Player player, Location target) {
         return PlayerCacheUtil.getCachePermission(player, target, target.getBlock().getType(),
+                TownyPermission.ActionType.BUILD);
+    }
+
+    /**
+     * @param player Player trying to use an item
+     * @param target Place where the player seeks to use an item
+     * @return true if player can use the item
+     */
+    @Override
+    public boolean canUse(Player player, Location target) {
+        return PlayerCacheUtil.getCachePermission(player, target, target.getBlock().getType(),
                 TownyPermission.ActionType.ITEM_USE);
     }
 }

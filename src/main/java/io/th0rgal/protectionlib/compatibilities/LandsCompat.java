@@ -49,4 +49,15 @@ public class LandsCompat extends ProtectionCompatibility {
         Land land = landsIntegration.getLand(target);
         return land == null || land.getTrustedPlayers().stream().anyMatch(playerUUID -> playerUUID.equals(player.getUniqueId()));
     }
+
+    /**
+     * @param player Player looking to use an item
+     * @param target Place where the player seeks to use an item
+     * @return true if player can use the item
+     */
+    @Override
+    public boolean canUse(Player player, Location target) {
+        Land land = landsIntegration.getLand(target);
+        return land == null || land.getTrustedPlayers().stream().anyMatch(playerUUID -> playerUUID.equals(player.getUniqueId()));
+    }
 }
