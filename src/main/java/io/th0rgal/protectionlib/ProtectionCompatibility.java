@@ -29,6 +29,20 @@ public abstract class ProtectionCompatibility {
      */
     public abstract boolean canBreak(Player player, Location target);
 
+    /**
+     * @param player Player looking to interact
+     * @param target Place where the player seeks to interact
+     * @return true if he can break the block
+     */
+    public abstract boolean canInteract(Player player, Location target);
+
+    /**
+     * @param player Player looking to use an item
+     * @param target Place where the player tried using the item
+     * @return true if player can use item
+     */
+    public abstract boolean canUse(Player player, Location target);
+
     public Plugin getMainPlugin() {
         return mainPlugin;
     }

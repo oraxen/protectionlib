@@ -19,4 +19,13 @@ public class FactionsUuidCompatFix {
                 .hasAccess(fPlayers.getByPlayer(player), PermissibleActions.DESTROY, new FLocation(target));
     }
 
+    public static boolean canInteract(Board board, FPlayers fPlayers, Player player, Location target) {
+        return board.getFactionAt(new FLocation(target))
+                .hasAccess(fPlayers.getByPlayer(player), PermissibleActions.LEVER, new FLocation(target));
+    }
+
+    public static boolean canUse(Board board, FPlayers fPlayers, Player player, Location target) {
+        return board.getFactionAt(new FLocation(target))
+                .hasAccess(fPlayers.getByPlayer(player), PermissibleActions.ITEM, new FLocation(target));
+    }
 }
