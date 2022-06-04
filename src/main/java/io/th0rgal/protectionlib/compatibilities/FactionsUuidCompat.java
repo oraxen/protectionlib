@@ -44,4 +44,14 @@ public class FactionsUuidCompat extends ProtectionCompatibility {
     public boolean canBreak(Player player, Location target) {
         return FactionsUuidCompatFix.canBreak(board, fPlayers, player, target);
     }
+
+    /**
+     * @param player Player looking to interact
+     * @param target Place where the player seeks to interact
+     * @return true if he can interact
+     */
+    @Override
+    public boolean canInteract(Player player, Location target) {
+        return FactionsUuidCompatFix.canBreak(board, fPlayers, player, target);
+    }
 }
