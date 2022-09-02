@@ -34,7 +34,6 @@ dependencies {
         exclude group: 'com.mojang', module: 'brigadier'
     }
     compileOnly "com.github.angeschossen:LandsAPI:5.13.0"
-    //compileOnly 'com.massivecraft:Factions:1.6.9.5-U0.5.23'
 }
 
 compileJava.dependsOn clean

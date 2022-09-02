@@ -20,7 +20,8 @@ public class ProtectionLib {
     public static void init(JavaPlugin plugin) {
         handleCompatibility("WorldGuard", plugin, WorldGuardCompat::new);
         handleCompatibility("Towny", plugin, TownyCompat::new);
-        handleCompatibility("Factions", plugin, FactionsUuidCompat::new);
+        //noinspection Convert2MethodRef
+        handleCompatibility("Factions", plugin, (m, p) -> new FactionsUuidCompat(m, p));
         handleCompatibility("Lands", plugin, LandsCompat::new);
     }
 
