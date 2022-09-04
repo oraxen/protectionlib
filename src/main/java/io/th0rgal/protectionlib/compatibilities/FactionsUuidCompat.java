@@ -1,13 +1,8 @@
 package io.th0rgal.protectionlib.compatibilities;
 
-import com.massivecraft.factions.Board;
-import com.massivecraft.factions.FLocation;
-import com.massivecraft.factions.FPlayers;
-import com.massivecraft.factions.perms.PermissibleAction;
+import com.massivecraft.factions.FactionsPlugin;
+import com.massivecraft.factions.listeners.FactionsBlockListener;
 import com.massivecraft.factions.perms.PermissibleActions;
-import com.massivecraft.factions.perms.Selectable;
-import com.massivecraft.factions.perms.selector.FactionSelector;
-import com.massivecraft.factions.perms.selector.PlayerSelector;
 import io.th0rgal.protectionlib.ProtectionCompatibility;
 import org.bukkit.Location;
 import org.bukkit.entity.Player;
@@ -15,14 +10,8 @@ import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public class FactionsUuidCompat extends ProtectionCompatibility {
-
-    private final FPlayers fPlayers;
-    private final Board board;
-
     public FactionsUuidCompat(JavaPlugin mainPlugin, Plugin plugin) {
         super(mainPlugin, plugin);
-        this.fPlayers = FPlayers.getInstance();
-        this.board = Board.getInstance();
     }
 
     /**
@@ -32,7 +21,7 @@ public class FactionsUuidCompat extends ProtectionCompatibility {
      */
     @Override
     public boolean canBuild(Player player, Location target) {
-        return FactionsUuidCompatFix.canBuild(board, fPlayers, player, target);
+        return !FactionsPlugin.getInstance().worldUtil().isEnabled(target.getWorld()) || FactionsBlockListener.playerCanBuildDestroyBlock(player, target, PermissibleActions.BUILD, false);
     }
 
     /**
@@ -42,6 +31,6 @@ public class FactionsUuidCompat extends ProtectionCompatibility {
      */
     @Override
     public boolean canBreak(Player player, Location target) {
-        return FactionsUuidCompatFix.canBreak(board, fPlayers, player, target);
+        return !FactionsPlugin.getInstance().worldUtil().isEnabled(target.getWorld()) || FactionsBlockListener.playerCanBuildDestroyBlock(player, target, PermissibleActions.DESTROY, false);
     }
 }
