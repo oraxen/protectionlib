@@ -10,8 +10,10 @@ import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.java.JavaPlugin;
 
 public class FactionsUuidCompat extends ProtectionCompatibility {
+    private static FactionsPlugin factions;
     public FactionsUuidCompat(JavaPlugin mainPlugin, Plugin plugin) {
         super(mainPlugin, plugin);
+        factions = FactionsPlugin.getInstance();
     }
 
     /**
@@ -21,7 +23,7 @@ public class FactionsUuidCompat extends ProtectionCompatibility {
      */
     @Override
     public boolean canBuild(Player player, Location target) {
-        return !FactionsPlugin.getInstance().worldUtil().isEnabled(target.getWorld()) || FactionsBlockListener.playerCanBuildDestroyBlock(player, target, PermissibleActions.BUILD, false);
+        return !factions.worldUtil().isEnabled(target.getWorld()) || FactionsBlockListener.playerCanBuildDestroyBlock(player, target, PermissibleActions.BUILD, false);
     }
 
     /**
@@ -31,6 +33,6 @@ public class FactionsUuidCompat extends ProtectionCompatibility {
      */
     @Override
     public boolean canBreak(Player player, Location target) {
-        return !FactionsPlugin.getInstance().worldUtil().isEnabled(target.getWorld()) || FactionsBlockListener.playerCanBuildDestroyBlock(player, target, PermissibleActions.DESTROY, false);
+        return !factions.worldUtil().isEnabled(target.getWorld()) || FactionsBlockListener.playerCanBuildDestroyBlock(player, target, PermissibleActions.DESTROY, false);
     }
 }

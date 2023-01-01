@@ -1,9 +1,6 @@
 package io.th0rgal.protectionlib;
 
-import io.th0rgal.protectionlib.compatibilities.FactionsUuidCompat;
-import io.th0rgal.protectionlib.compatibilities.LandsCompat;
-import io.th0rgal.protectionlib.compatibilities.TownyCompat;
-import io.th0rgal.protectionlib.compatibilities.WorldGuardCompat;
+import io.th0rgal.protectionlib.compatibilities.*;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.entity.Player;
@@ -23,6 +20,7 @@ public class ProtectionLib {
         //noinspection Convert2MethodRef
         handleCompatibility("Factions", plugin, (m, p) -> new FactionsUuidCompat(m, p));
         handleCompatibility("Lands", plugin, LandsCompat::new);
+        handleCompatibility("PlotSquared", plugin, PlotSquaredCompat::new);
     }
 
     public static boolean canBuild(Player player, Location target) {

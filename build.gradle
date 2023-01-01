@@ -20,20 +20,30 @@ repositories {
     maven { url "https://ci.ender.zone/plugin/repository/everything/" }
     maven { url "https://repo.glaremasters.me/repository/towny/" }
     maven { url "https://maven.enginehub.org/repo/" }
+    maven { url "https://repo.papermc.io/repository/maven-public/" }
     maven { url "https://jitpack.io" }
 }
 
 dependencies {
-    compileOnly group: "org.spigotmc", name: "spigot-api", version: "1.17.1-R0.1-SNAPSHOT"
+    compileOnly group: "org.spigotmc", name: "spigot-api", version: "1.19.3-R0.1-SNAPSHOT"
     compileOnly group: "com.sk89q.worldguard", name: "worldguard-bukkit", version: "7.0.5"
-    compileOnly 'com.palmergames.bukkit.towny:towny:0.98.1.0'
+    compileOnly 'com.palmergames.bukkit.towny:towny:0.98.4.0'
     compileOnly('com.massivecraft:Factions:1.6.9.5-U0.6.11') {
         exclude group: 'org.kitteh', module: 'paste-gg-api'
         exclude group: 'com.darkblade12', module: 'particleeffect'
         exclude group: 'org.spongepowered', module: 'configurate-hocon'
         exclude group: 'com.mojang', module: 'brigadier'
     }
-    compileOnly "com.github.angeschossen:LandsAPI:5.13.0"
+    compileOnly "com.github.angeschossen:LandsAPI:6.26.9"
+    implementation(platform("com.intellectualsites.bom:bom-1.18.x:1.20"))
+    compileOnly("com.plotsquared:PlotSquared-Core")
+    compileOnly("com.plotsquared:PlotSquared-Bukkit")
+}
+
+java {
+    toolchain {
+        languageVersion = JavaLanguageVersion.of(17)
+    }
 }
 
 compileJava.dependsOn clean

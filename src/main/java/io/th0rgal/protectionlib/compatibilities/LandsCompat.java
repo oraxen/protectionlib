@@ -1,7 +1,8 @@
 package io.th0rgal.protectionlib.compatibilities;
 
 import io.th0rgal.protectionlib.ProtectionCompatibility;
-import me.angeschossen.lands.api.integration.LandsIntegration;
+import me.angeschossen.lands.api.LandsIntegration;
+import me.angeschossen.lands.api.land.Area;
 import me.angeschossen.lands.api.land.Land;
 import org.bukkit.Location;
 import org.bukkit.entity.Player;
@@ -14,7 +15,7 @@ public class LandsCompat extends ProtectionCompatibility {
 
     public LandsCompat(JavaPlugin mainPlugin, Plugin plugin) {
         super(mainPlugin, plugin);
-        landsIntegration = new LandsIntegration(mainPlugin);
+        landsIntegration = LandsIntegration.of(mainPlugin);
     }
 
     /**
@@ -24,8 +25,8 @@ public class LandsCompat extends ProtectionCompatibility {
      */
     @Override
     public boolean canBuild(Player player, Location target) {
-        Land land = landsIntegration.getLand(target);
-        return land == null || land.getTrustedPlayers().stream().anyMatch(playerUUID -> playerUUID.equals(player.getUniqueId()));
+        Land land = getLand(target);
+        return land == null || land.isTrusted(player.getUniqueId());
     }
 
     /**
@@ -35,8 +36,14 @@ public class LandsCompat extends ProtectionCompatibility {
      */
     @Override
     public boolean canBreak(Player player, Location target) {
-        Land land = landsIntegration.getLand(target);
-        return land == null || land.getTrustedPlayers().stream().anyMatch(playerUUID -> playerUUID.equals(player.getUniqueId()));
+        Land land = getLand(target);
+        return land == null || land.isTrusted(player.getUniqueId());
+    }
+
+    private Land getLand(Location location) {
+        Area area = landsIntegration.getArea(location);
+        if (area == null) return null;
+        return area.getLand();
     }
 
 }
