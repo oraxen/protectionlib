@@ -36,6 +36,13 @@ public abstract class ProtectionCompatibility {
      */
     public abstract boolean canInteract(Player player, Location target);
 
+    /**
+     * @param player Player looking to use an item
+     * @param target Place where the player seeks to use an item at a location
+     * @return true if he can use the item at the location
+     */
+    public abstract boolean canUse(Player player, Location target);
+
     public Plugin getMainPlugin() {
         return mainPlugin;
     }

@@ -51,6 +51,16 @@ public class LandsCompat extends ProtectionCompatibility {
         return land == null || land.isTrusted(player.getUniqueId());
     }
 
+    /**
+     * @param player Player looking to use an item
+     * @param target Place where the player seeks to use an item at a location
+     * @return true if he can use the item at the location
+     */
+    public boolean canUse(Player player, Location target) {
+        Land land = getLand(target);
+        return land == null || land.isTrusted(player.getUniqueId());
+    }
+
     private Land getLand(Location location) {
         Area area = landsIntegration.getArea(location);
         if (area == null) return null;

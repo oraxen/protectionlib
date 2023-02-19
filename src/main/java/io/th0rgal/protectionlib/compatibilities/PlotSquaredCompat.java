@@ -41,6 +41,16 @@ public class PlotSquaredCompat extends ProtectionCompatibility {
         return plot == null || plot.isAdded(player.getUniqueId());
     }
 
+    /**
+     * @param player Player looking to use an item
+     * @param target Place where the player seeks to use an item at a location
+     * @return true if he can use the item at the location
+     */
+    public boolean canUse(Player player, Location target) {
+        Plot plot = getPlotFromLocation(target);
+        return plot == null || plot.isAdded(player.getUniqueId());
+    }
+
     private Plot getPlotFromLocation(Location location) {
         com.plotsquared.core.location.Location plotLoc = adaptBukkitLocation(location);
         if (plotLoc == null) return null;
