@@ -40,6 +40,17 @@ public class LandsCompat extends ProtectionCompatibility {
         return land == null || land.isTrusted(player.getUniqueId());
     }
 
+    /**
+     * @param player Player looking to interact with a block
+     * @param target Place where the player seeks to interact with a block
+     * @return true if he can interact with the block
+     */
+    @Override
+    public boolean canInteract(Player player, Location target) {
+        Land land = getLand(target);
+        return land == null || land.isTrusted(player.getUniqueId());
+    }
+
     private Land getLand(Location location) {
         Area area = landsIntegration.getArea(location);
         if (area == null) return null;

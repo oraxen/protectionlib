@@ -21,15 +21,24 @@ public class PlotSquaredCompat extends ProtectionCompatibility {
     @Override
     public boolean canBuild(Player player, Location target) {
         Plot plot = getPlotFromLocation(target);
-        if (plot == null) return true;
-        return plot.isAdded(player.getUniqueId());
+        return plot == null || plot.isAdded(player.getUniqueId());
     }
 
     @Override
     public boolean canBreak(Player player, Location target) {
         Plot plot = getPlotFromLocation(target);
-        if (plot == null) return true;
-        return plot.isDenied(player.getUniqueId());
+        return plot == null || !plot.isDenied(player.getUniqueId());
+    }
+
+    /**
+     * @param player Player looking to interact with a block
+     * @param target Place where the player seeks to interact with a block
+     * @return true if he can interact with the block
+     */
+    @Override
+    public boolean canInteract(Player player, Location target) {
+        Plot plot = getPlotFromLocation(target);
+        return plot == null || plot.isAdded(player.getUniqueId());
     }
 
     private Plot getPlotFromLocation(Location location) {

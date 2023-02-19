@@ -52,4 +52,19 @@ public class WorldGuardCompat extends ProtectionCompatibility {
                 .hasBypass(localPlayer, BukkitAdapter.adapt(player.getWorld())
                 );
     }
+
+    /**
+     * @param player Player looking to interact with a block
+     * @param target Place where the player seeks to interact with a block
+     * @return true if he can interact with the block
+     */
+    @Override
+    public boolean canInteract(Player player, Location target) {
+        LocalPlayer localPlayer = ((WorldGuardPlugin) getPlugin()).wrapPlayer(player);
+        return regionContainer.createQuery().testBuild(BukkitAdapter.adapt(target), localPlayer, Flags.INTERACT)
+                || worldGuard.getPlatform()
+                .getSessionManager()
+                .hasBypass(localPlayer, BukkitAdapter.adapt(player.getWorld())
+                );
+    }
 }

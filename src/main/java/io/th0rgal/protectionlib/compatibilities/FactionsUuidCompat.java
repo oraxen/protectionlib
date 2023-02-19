@@ -2,6 +2,7 @@ package io.th0rgal.protectionlib.compatibilities;
 
 import com.massivecraft.factions.FactionsPlugin;
 import com.massivecraft.factions.listeners.FactionsBlockListener;
+import com.massivecraft.factions.listeners.FactionsPlayerListener;
 import com.massivecraft.factions.perms.PermissibleActions;
 import io.th0rgal.protectionlib.ProtectionCompatibility;
 import org.bukkit.Location;
@@ -34,5 +35,15 @@ public class FactionsUuidCompat extends ProtectionCompatibility {
     @Override
     public boolean canBreak(Player player, Location target) {
         return !factions.worldUtil().isEnabled(target.getWorld()) || FactionsBlockListener.playerCanBuildDestroyBlock(player, target, PermissibleActions.DESTROY, false);
+    }
+
+    /**
+     * @param player Player looking to interact with a block
+     * @param target Place where the player seeks to interact with a block
+     * @return true if he can interact with the block
+     */
+    @Override
+    public boolean canInteract(Player player, Location target) {
+        return !factions.worldUtil().isEnabled(target.getWorld()) || FactionsPlayerListener.canInteractHere(player, target);
     }
 }
