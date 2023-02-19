@@ -35,6 +35,10 @@ public class ProtectionLib {
         return compatibilities.stream().allMatch(compatibility -> compatibility.canInteract(player, target));
     }
 
+    public static boolean canUse(Player player, Location target) {
+        return compatibilities.stream().allMatch(compatibility -> compatibility.canUse(player, target));
+    }
+
     private static void handleCompatibility(String pluginName, JavaPlugin mainPlugin, CompatibilityConstructor constructor) {
         Plugin plugin = Bukkit.getPluginManager().getPlugin(pluginName);
         if (plugin != null) {

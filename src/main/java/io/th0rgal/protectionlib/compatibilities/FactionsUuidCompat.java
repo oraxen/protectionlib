@@ -44,6 +44,15 @@ public class FactionsUuidCompat extends ProtectionCompatibility {
      */
     @Override
     public boolean canInteract(Player player, Location target) {
+        return !factions.worldUtil().isEnabled(target.getWorld()) || FactionsPlayerListener.canUseBlock(player, target.getBlock().getType(), target, true);
+    }
+
+    /**
+     * @param player Player looking to use an item
+     * @param target Place where the player seeks to use an item at a location
+     * @return true if he can use the item at the location
+     */
+    public boolean canUse(Player player, Location target) {
         return !factions.worldUtil().isEnabled(target.getWorld()) || FactionsPlayerListener.canInteractHere(player, target);
     }
 }
