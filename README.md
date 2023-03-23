@@ -17,11 +17,13 @@
 
 # What's new?
 
-ProtectionLib introduces two methods to check if a player can build or break blocks at a specific location.
+ProtectionLib introduces four methods to check if a player can build, break or interact with a block at a specific location.
 
 ```java
 ProtectionLib.canBuild(player,location);
 ProtectionLib.canBreak(player,location);
+ProtectionLib.canInteract(player,location);
+ProtectionLib.canUse(player,location);
 ```
 
 # Get ProtectionLib
@@ -35,7 +37,7 @@ ProtectionLib.canBreak(player,location);
 2) Shade ProtectionLib to your plugin
 
 ```groovy
-   implementation 'com.github.oraxen:protectionlib:master-SNAPSHOT'
+   implementation 'com.github.oraxen:protectionlib:RELEASE_VERSION'
 ```
 
 3) Init ProtectionLib in your plugin onEnable()
@@ -47,7 +49,7 @@ ProtectionLib.canBreak(player,location);
 4) Add softdepend to plugin.yml
 
 ```yaml
-   softdepend: [ WorldGuard, Towny, Factions, Lands ]
+   softdepend: [ WorldGuard, Towny, Factions, Lands, PlotSquared, CrashClaim  ]
 ```
 
 # Supported plugins
@@ -55,3 +57,5 @@ ProtectionLib.canBreak(player,location);
 - [Towny](https://www.spigotmc.org/resources/towny-advanced.72694/) (Free)
 - [FactionsUUID](https://www.spigotmc.org/resources/factionsuuid.1035/) (Paid)
 - [Lands](https://www.spigotmc.org/resources/lands-land-claim-plugin-grief-prevention-protection-gui-management-nations-wars-1-17-support.53313/) (Paid)
+- [PlotSquared](https://www.spigotmc.org/resources/plotsquared.1177/) (Free)
+- [CrashClaim](https://www.spigotmc.org/resources/crashclaim-claiming-plugin.94037/) (Paid)
