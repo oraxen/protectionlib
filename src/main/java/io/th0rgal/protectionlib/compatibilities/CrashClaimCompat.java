@@ -1,8 +1,5 @@
 package io.th0rgal.protectionlib.compatibilities;
 
-import com.massivecraft.factions.listeners.FactionsBlockListener;
-import com.massivecraft.factions.listeners.FactionsPlayerListener;
-import com.massivecraft.factions.perms.PermissibleActions;
 import io.th0rgal.protectionlib.ProtectionCompatibility;
 import net.crashcraft.crashclaim.CrashClaim;
 import net.crashcraft.crashclaim.api.CrashClaimAPI;

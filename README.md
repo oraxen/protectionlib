@@ -42,7 +42,7 @@ ProtectionLib.canUse(player,location);
 
 3) Init ProtectionLib in your plugin onEnable()
 
-```groovy
+```java
    ProtectionLib.init(this);
 ```
 
