@@ -14,14 +14,14 @@ public class ProtectionLib {
 
     private final static Set<ProtectionCompatibility> compatibilities = new HashSet<>();
 
+    @SuppressWarnings("Convert2MethodRef")
     public static void init(JavaPlugin plugin) {
-        handleCompatibility("WorldGuard", plugin, WorldGuardCompat::new);
-        handleCompatibility("Towny", plugin, TownyCompat::new);
-        //noinspection Convert2MethodRef
-        handleCompatibility("Factions", plugin, FactionsUuidCompat::new);
-        handleCompatibility("Lands", plugin, LandsCompat::new);
-        handleCompatibility("PlotSquared", plugin, PlotSquaredCompat::new);
-        handleCompatibility("CrashClaim", plugin, CrashClaimCompat::new);
+        handleCompatibility("WorldGuard", plugin, (m, p) -> new WorldGuardCompat(m, p));
+        handleCompatibility("Towny", plugin, (m, p) -> new TownyCompat(m, p));
+        handleCompatibility("Factions", plugin, (m, p) -> new FactionsUuidCompat(m, p));
+        handleCompatibility("Lands", plugin, (m, p) -> new LandsCompat(m, p));
+        handleCompatibility("PlotSquared", plugin, (m, p) -> new PlotSquaredCompat(m, p));
+        handleCompatibility("CrashClaim", plugin, (m, p) -> new CrashClaimCompat(m, p));
     }
 
     public static boolean canBuild(Player player, Location target) {
