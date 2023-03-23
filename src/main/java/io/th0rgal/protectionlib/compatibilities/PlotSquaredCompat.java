@@ -1,10 +1,6 @@
 package io.th0rgal.protectionlib.compatibilities;
 
-import com.plotsquared.core.PlotAPI;
-import com.plotsquared.core.PlotSquared;
 import com.plotsquared.core.plot.Plot;
-import com.plotsquared.core.plot.PlotManager;
-import com.sk89q.worldedit.bukkit.BukkitAdapter;
 import io.th0rgal.protectionlib.ProtectionCompatibility;
 import org.bukkit.Location;
 import org.bukkit.entity.Player;

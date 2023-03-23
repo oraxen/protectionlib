@@ -1,6 +1,5 @@
 package io.th0rgal.protectionlib.compatibilities;
 
-import com.palmergames.bukkit.towny.TownyAPI;
 import com.palmergames.bukkit.towny.object.TownyPermission;
 import com.palmergames.bukkit.towny.utils.PlayerCacheUtil;
 import io.th0rgal.protectionlib.ProtectionCompatibility;
