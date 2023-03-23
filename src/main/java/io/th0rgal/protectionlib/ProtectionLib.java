@@ -18,9 +18,10 @@ public class ProtectionLib {
         handleCompatibility("WorldGuard", plugin, WorldGuardCompat::new);
         handleCompatibility("Towny", plugin, TownyCompat::new);
         //noinspection Convert2MethodRef
-        handleCompatibility("Factions", plugin, (m, p) -> new FactionsUuidCompat(m, p));
+        handleCompatibility("Factions", plugin, FactionsUuidCompat::new);
         handleCompatibility("Lands", plugin, LandsCompat::new);
         handleCompatibility("PlotSquared", plugin, PlotSquaredCompat::new);
+        handleCompatibility("CrashClaim", plugin, CrashClaimCompat::new);
     }
 
     public static boolean canBuild(Player player, Location target) {
