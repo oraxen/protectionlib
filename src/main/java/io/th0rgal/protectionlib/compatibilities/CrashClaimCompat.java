@@ -11,6 +11,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 public class CrashClaimCompat extends ProtectionCompatibility {
     private static CrashClaimAPI crashClaim;
+
     public CrashClaimCompat(JavaPlugin mainPlugin, Plugin plugin) {
         super(mainPlugin, plugin);
         crashClaim = new CrashClaimAPI((CrashClaim) plugin);
@@ -23,7 +24,9 @@ public class CrashClaimCompat extends ProtectionCompatibility {
      */
     @Override
     public boolean canBuild(Player player, Location target) {
-        return crashClaim.getClaim(target) == null || crashClaim.getClaim(target).hasPermission(player.getUniqueId(), target, PermissionRoute.BUILD);
+        return crashClaim.getClaim(target) == null ||
+                crashClaim.getPermissionHelper().getBypassManager().isBypass(player.getUniqueId()) ||
+                crashClaim.getClaim(target).hasPermission(player.getUniqueId(), target, PermissionRoute.BUILD);
     }
 
     /**
@@ -33,7 +36,9 @@ public class CrashClaimCompat extends ProtectionCompatibility {
      */
     @Override
     public boolean canBreak(Player player, Location target) {
-        return crashClaim.getClaim(target) == null || crashClaim.getClaim(target).hasPermission(player.getUniqueId(), target, PermissionRoute.BUILD);
+        return crashClaim.getClaim(target) == null ||
+                crashClaim.getPermissionHelper().getBypassManager().isBypass(player.getUniqueId()) ||
+                crashClaim.getClaim(target).hasPermission(player.getUniqueId(), target, PermissionRoute.BUILD);
     }
 
     /**
@@ -43,7 +48,9 @@ public class CrashClaimCompat extends ProtectionCompatibility {
      */
     @Override
     public boolean canInteract(Player player, Location target) {
-        return crashClaim.getClaim(target) == null || crashClaim.getClaim(target).hasPermission(player.getUniqueId(), target, PermissionRoute.INTERACTIONS);
+        return crashClaim.getClaim(target) == null ||
+                crashClaim.getPermissionHelper().getBypassManager().isBypass(player.getUniqueId()) ||
+                crashClaim.getClaim(target).hasPermission(player.getUniqueId(), target, PermissionRoute.INTERACTIONS);
     }
 
     /**
@@ -52,6 +59,8 @@ public class CrashClaimCompat extends ProtectionCompatibility {
      * @return true if he can use the item at the location
      */
     public boolean canUse(Player player, Location target) {
-        return crashClaim.getClaim(target) == null || crashClaim.getClaim(target).hasPermission(player.getUniqueId(), target, PermissionRoute.INTERACTIONS);
+        return crashClaim.getClaim(target) == null ||
+                crashClaim.getPermissionHelper().getBypassManager().isBypass(player.getUniqueId()) ||
+                crashClaim.getClaim(target).hasPermission(player.getUniqueId(), target, PermissionRoute.INTERACTIONS);
     }
 }
