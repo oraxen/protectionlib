@@ -7,6 +7,7 @@ import com.sk89q.worldguard.bukkit.WorldGuardPlugin;
 import com.sk89q.worldguard.protection.flags.Flags;
 import io.th0rgal.protectionlib.ProtectionCompatibility;
 import org.bukkit.Location;
+import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -62,5 +63,10 @@ public class WorldGuardCompat extends ProtectionCompatibility {
         LocalPlayer localPlayer = ((WorldGuardPlugin) getPlugin()).wrapPlayer(player);
         return WorldGuard.getInstance().getPlatform().getRegionContainer().createQuery().testBuild(BukkitAdapter.adapt(target), localPlayer, Flags.USE)
                 || WorldGuard.getInstance().getPlatform().getSessionManager().hasBypass(localPlayer, BukkitAdapter.adapt(player.getWorld()));
+    }
+
+    @Override
+    public boolean isNPC(Entity npc) {
+        return false;
     }
 }

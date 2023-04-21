@@ -1,6 +1,7 @@
 package io.th0rgal.protectionlib;
 
 import org.bukkit.Location;
+import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -42,6 +43,12 @@ public abstract class ProtectionCompatibility {
      * @return true if he can use the item at the location
      */
     public abstract boolean canUse(Player player, Location target);
+
+    /**
+     * @param npc Entity that need's to be checked
+     * @return true if the entity is a npc
+     */
+    public abstract boolean isNPC(Entity npc);
 
     public Plugin getMainPlugin() {
         return mainPlugin;

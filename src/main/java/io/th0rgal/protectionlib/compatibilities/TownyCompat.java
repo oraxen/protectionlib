@@ -4,6 +4,7 @@ import com.palmergames.bukkit.towny.object.TownyPermission;
 import com.palmergames.bukkit.towny.utils.PlayerCacheUtil;
 import io.th0rgal.protectionlib.ProtectionCompatibility;
 import org.bukkit.Location;
+import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -55,5 +56,10 @@ public class TownyCompat extends ProtectionCompatibility {
     public boolean canUse(Player player, Location target) {
         return PlayerCacheUtil.getCachePermission(player, target, target.getBlock().getType(),
                 TownyPermission.ActionType.ITEM_USE);
+    }
+
+    @Override
+    public boolean isNPC(Entity npc) {
+        return false;
     }
 }

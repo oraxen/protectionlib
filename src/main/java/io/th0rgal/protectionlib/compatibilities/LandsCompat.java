@@ -5,6 +5,7 @@ import me.angeschossen.lands.api.LandsIntegration;
 import me.angeschossen.lands.api.land.Area;
 import me.angeschossen.lands.api.land.Land;
 import org.bukkit.Location;
+import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -59,6 +60,11 @@ public class LandsCompat extends ProtectionCompatibility {
     public boolean canUse(Player player, Location target) {
         Land land = getLand(target);
         return land == null || land.isTrusted(player.getUniqueId());
+    }
+
+    @Override
+    public boolean isNPC(Entity npc) {
+        return false;
     }
 
     private Land getLand(Location location) {

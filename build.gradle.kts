@@ -18,6 +18,7 @@ repositories {
     maven("https://maven.enginehub.org/repo/")
     maven("https://repo.papermc.io/repository/maven-public/")
     maven("https://jitpack.io")
+    maven("https://maven.citizensnpcs.co/repo")
 }
 
 dependencies {
@@ -35,6 +36,7 @@ dependencies {
     implementation(platform("com.intellectualsites.bom:bom-1.18.x:1.20"))
     compileOnly("com.plotsquared:PlotSquared-Core")
     compileOnly("com.plotsquared:PlotSquared-Bukkit")
+    compileOnly("net.citizensnpcs:citizensapi:2.0.31-SNAPSHOT")
 }
 
 java {

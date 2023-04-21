@@ -5,6 +5,7 @@ import net.crashcraft.crashclaim.CrashClaim;
 import net.crashcraft.crashclaim.api.CrashClaimAPI;
 import net.crashcraft.crashclaim.permissions.PermissionRoute;
 import org.bukkit.Location;
+import org.bukkit.entity.Entity;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -62,5 +63,10 @@ public class CrashClaimCompat extends ProtectionCompatibility {
         return crashClaim.getClaim(target) == null ||
                 crashClaim.getPermissionHelper().getBypassManager().isBypass(player.getUniqueId()) ||
                 crashClaim.getClaim(target).hasPermission(player.getUniqueId(), target, PermissionRoute.INTERACTIONS);
+    }
+
+    @Override
+    public boolean isNPC(Entity npc) {
+        return false;
     }
 }
