@@ -46,7 +46,7 @@ public class ProtectionLib {
 
 
     public static boolean isNPC(Entity npc){
-        return compatibilities.stream().allMatch(compatibility -> compatibility.isNPC(npc));
+        return compatibilities.stream().anyMatch(compatibility -> compatibility.isNPC(npc));
     }
 
 
