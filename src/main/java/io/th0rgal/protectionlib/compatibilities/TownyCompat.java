@@ -62,4 +62,5 @@ public class TownyCompat extends ProtectionCompatibility {
     public boolean isNPC(Entity npc) {
         return false;
     }
+
 }
