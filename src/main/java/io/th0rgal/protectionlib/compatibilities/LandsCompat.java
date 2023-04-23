@@ -62,10 +62,6 @@ public class LandsCompat extends ProtectionCompatibility {
         return land == null || land.isTrusted(player.getUniqueId());
     }
 
-    @Override
-    public boolean isNPC(Entity npc) {
-        return false;
-    }
 
     private Land getLand(Location location) {
         Area area = landsIntegration.getArea(location);

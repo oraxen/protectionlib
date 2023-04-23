@@ -65,8 +65,4 @@ public class WorldGuardCompat extends ProtectionCompatibility {
                 || WorldGuard.getInstance().getPlatform().getSessionManager().hasBypass(localPlayer, BukkitAdapter.adapt(player.getWorld()));
     }
 
-    @Override
-    public boolean isNPC(Entity npc) {
-        return false;
-    }
 }

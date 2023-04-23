@@ -65,8 +65,4 @@ public class CrashClaimCompat extends ProtectionCompatibility {
                 crashClaim.getClaim(target).hasPermission(player.getUniqueId(), target, PermissionRoute.INTERACTIONS);
     }
 
-    @Override
-    public boolean isNPC(Entity npc) {
-        return false;
-    }
 }

@@ -44,12 +44,6 @@ public abstract class ProtectionCompatibility {
      */
     public abstract boolean canUse(Player player, Location target);
 
-    /**
-     * @param npc Entity that need's to be checked
-     * @return true if the entity is a npc
-     */
-    public abstract boolean isNPC(Entity npc);
-
     public Plugin getMainPlugin() {
         return mainPlugin;
     }

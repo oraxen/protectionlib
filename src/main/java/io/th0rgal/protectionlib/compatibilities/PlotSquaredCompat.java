@@ -48,10 +48,6 @@ public class PlotSquaredCompat extends ProtectionCompatibility {
         return plot == null || plot.isAdded(player.getUniqueId());
     }
 
-    @Override
-    public boolean isNPC(Entity npc) {
-        return false;
-    }
 
     private Plot getPlotFromLocation(Location location) {
         com.plotsquared.core.location.Location plotLoc = adaptBukkitLocation(location);

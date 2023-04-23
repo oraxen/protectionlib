@@ -57,8 +57,4 @@ public class FactionsUuidCompat extends ProtectionCompatibility {
         return !factions.worldUtil().isEnabled(target.getWorld()) || FactionsPlayerListener.canInteractHere(player, target);
     }
 
-    @Override
-    public boolean isNPC(Entity npc) {
-        return false;
-    }
 }

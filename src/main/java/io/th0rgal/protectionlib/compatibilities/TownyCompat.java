@@ -58,9 +58,5 @@ public class TownyCompat extends ProtectionCompatibility {
                 TownyPermission.ActionType.ITEM_USE);
     }
 
-    @Override
-    public boolean isNPC(Entity npc) {
-        return false;
-    }
 
 }
