@@ -21,7 +21,7 @@ repositories {
 }
 
 dependencies {
-    compileOnly("org.spigotmc:spigot-api:1.19.3-R0.1-SNAPSHOT")
+    compileOnly("org.spigotmc:spigot-api:1.20-R0.1-SNAPSHOT")
     compileOnly("com.sk89q.worldguard:worldguard-bukkit:7.0.7")
     compileOnly("com.palmergames.bukkit.towny:towny:0.98.6.0")
     compileOnly("com.massivecraft:Factions:1.6.9.5-U0.6.11") {
