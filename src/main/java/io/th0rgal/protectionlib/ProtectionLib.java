@@ -42,6 +42,7 @@ public class ProtectionLib {
 
     private static void handleCompatibility(String pluginName, JavaPlugin mainPlugin, CompatibilityConstructor constructor) {
         Plugin plugin = Bukkit.getPluginManager().getPlugin(pluginName);
+        if (pluginName.equals("Factions") && !checkFactionsCompat()) return;
         if (plugin != null) {
             compatibilities.add(constructor.create(mainPlugin, plugin));
         }
@@ -50,6 +51,17 @@ public class ProtectionLib {
     @FunctionalInterface
     private interface CompatibilityConstructor {
         ProtectionCompatibility create(JavaPlugin mainPlugin, Plugin plugin);
+    }
+
+    private static boolean checkFactionsCompat() {
+        try {
+            Class.forName("com.massivecraft.factions.perms.PermissibleActions");
+            return true;
+        } catch (ClassNotFoundException e) {
+            Bukkit.getLogger().warning("It seems a Factions plugin is installed, but it is not FactionsUUID.");
+            Bukkit.getLogger().warning("ProtectionLib will not be able to handle Factions protection.");
+            return false;
+        }
     }
 
 }
