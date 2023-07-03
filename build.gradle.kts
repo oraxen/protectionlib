@@ -21,16 +21,16 @@ repositories {
 }
 
 dependencies {
-    compileOnly("org.spigotmc:spigot-api:1.20-R0.1-SNAPSHOT")
-    compileOnly("com.sk89q.worldguard:worldguard-bukkit:7.0.7")
-    compileOnly("com.palmergames.bukkit.towny:towny:0.98.6.0")
+    compileOnly("org.spigotmc:spigot-api:1.20.1-R0.1-SNAPSHOT")
+    compileOnly("com.sk89q.worldguard:worldguard-bukkit:7.1.0-SNAPSHOT")
+    compileOnly("com.palmergames.bukkit.towny:towny:0.99.2.0")
     compileOnly("com.massivecraft:Factions:1.6.9.5-U0.6.11") {
         exclude("org.kitteh:paste-gg-api")
         exclude("com.darkblade12:particleeffect")
         exclude("org.spongepowered:configurate-hocon")
         exclude("com.mojang:brigadier")
     }
-    compileOnly("com.github.angeschossen:LandsAPI:6.28.11")
+    compileOnly("com.github.angeschossen:LandsAPI:6.29.12")
     compileOnly("com.github.WhipDevelopment:CrashClaim:ccecd8e779")
     implementation(platform("com.intellectualsites.bom:bom-1.18.x:1.20"))
     compileOnly("com.plotsquared:PlotSquared-Core")

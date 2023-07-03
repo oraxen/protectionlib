@@ -2,6 +2,8 @@ package io.th0rgal.protectionlib.compatibilities;
 
 import io.th0rgal.protectionlib.ProtectionCompatibility;
 import me.angeschossen.lands.api.LandsIntegration;
+import me.angeschossen.lands.api.flags.type.Flags;
+import me.angeschossen.lands.api.flags.type.RoleFlag;
 import me.angeschossen.lands.api.land.Area;
 import me.angeschossen.lands.api.land.Land;
 import org.bukkit.Location;
@@ -26,7 +28,7 @@ public class LandsCompat extends ProtectionCompatibility {
     @Override
     public boolean canBuild(Player player, Location target) {
         Land land = getLand(target);
-        return land == null || land.isTrusted(player.getUniqueId());
+        return land == null || land.isTrusted(player.getUniqueId()) || hasFlag(target, player, Flags.BLOCK_PLACE);
     }
 
     /**
@@ -37,7 +39,7 @@ public class LandsCompat extends ProtectionCompatibility {
     @Override
     public boolean canBreak(Player player, Location target) {
         Land land = getLand(target);
-        return land == null || land.isTrusted(player.getUniqueId());
+        return land == null || land.isTrusted(player.getUniqueId()) || hasFlag(target, player, Flags.BLOCK_BREAK);
     }
 
     /**
@@ -48,7 +50,7 @@ public class LandsCompat extends ProtectionCompatibility {
     @Override
     public boolean canInteract(Player player, Location target) {
         Land land = getLand(target);
-        return land == null || land.isTrusted(player.getUniqueId());
+        return land == null || land.isTrusted(player.getUniqueId()) || hasFlag(target, player, Flags.INTERACT_GENERAL);
     }
 
     /**
@@ -58,13 +60,21 @@ public class LandsCompat extends ProtectionCompatibility {
      */
     public boolean canUse(Player player, Location target) {
         Land land = getLand(target);
-        return land == null || land.isTrusted(player.getUniqueId());
+        return land == null || land.isTrusted(player.getUniqueId()) || hasFlag(target, player, Flags.INTERACT_GENERAL);
     }
 
     private Land getLand(Location location) {
         Area area = landsIntegration.getArea(location);
         if (area == null) return null;
         return area.getLand();
+    }
+
+    private Area getArea(Location location) {
+        return landsIntegration.getArea(location);
+    }
+
+    private boolean hasFlag(Location location, Player player, RoleFlag flag) {
+        return getArea(location).hasRoleFlag(player.getUniqueId(), flag);
     }
 
 }
