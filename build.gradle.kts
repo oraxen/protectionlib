@@ -31,7 +31,7 @@ dependencies {
         exclude("com.mojang:brigadier")
     }
     compileOnly("com.github.angeschossen:LandsAPI:6.29.12")
-    compileOnly("com.github.WhipDevelopment:CrashClaim:ccecd8e779")
+    compileOnly("com.github.WhipDevelopment:CrashClaim:75abe3b665")
     implementation(platform("com.intellectualsites.bom:bom-1.18.x:1.20"))
     compileOnly("com.plotsquared:PlotSquared-Core")
     compileOnly("com.plotsquared:PlotSquared-Bukkit")
