@@ -22,6 +22,7 @@ public class ProtectionLib {
         handleCompatibility("Lands", plugin, (m, p) -> new LandsCompat(m, p));
         handleCompatibility("PlotSquared", plugin, (m, p) -> new PlotSquaredCompat(m, p));
         handleCompatibility("CrashClaim", plugin, (m, p) -> new CrashClaimCompat(m, p));
+        handleCompatibility("GriefPrevention", plugin, (m, p) -> new GriefPreventionCompat(m, p));
     }
 
     public static boolean canBuild(Player player, Location target) {
