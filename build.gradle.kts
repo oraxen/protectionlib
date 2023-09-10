@@ -35,6 +35,7 @@ dependencies {
     implementation(platform("com.intellectualsites.bom:bom-1.18.x:1.20"))
     compileOnly("com.plotsquared:PlotSquared-Core")
     compileOnly("com.plotsquared:PlotSquared-Bukkit")
+    compileOnly("com.github.TechFortress:GriefPrevention:16.18")
 }
 
 java {
