@@ -1,7 +1,10 @@
 package io.th0rgal.protectionlib.compatibilities;
 
 import io.th0rgal.protectionlib.ProtectionCompatibility;
+import me.ryanhamshire.GriefPrevention.Claim;
+import me.ryanhamshire.GriefPrevention.ClaimPermission;
 import me.ryanhamshire.GriefPrevention.GriefPrevention;
+import me.ryanhamshire.GriefPrevention.PlayerData;
 import org.bukkit.Location;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.Plugin;
@@ -20,7 +23,7 @@ public class GriefPreventionCompat extends ProtectionCompatibility {
         */
         @Override
         public boolean canBuild(Player player, Location target) {
-            return GriefPrevention.instance.allowBuild(player, target) == null;
+            return checkPermission(player, target, ClaimPermission.Build);
         }
 
         /**
@@ -30,7 +33,7 @@ public class GriefPreventionCompat extends ProtectionCompatibility {
         */
         @Override
         public boolean canBreak(Player player, Location target) {
-            return GriefPrevention.instance.allowBreak(player, target.getBlock(), target) == null;
+            return checkPermission(player, target, ClaimPermission.Build);
         }
 
         /**
@@ -40,7 +43,7 @@ public class GriefPreventionCompat extends ProtectionCompatibility {
         */
         @Override
         public boolean canInteract(Player player, Location target) {
-            return GriefPrevention.instance.allowBuild(player, target) == null;
+            return checkPermission(player, target, ClaimPermission.Access);
         }
 
     /**
@@ -50,6 +53,15 @@ public class GriefPreventionCompat extends ProtectionCompatibility {
      */
     @Override
     public boolean canUse(Player player, Location target) {
-        return GriefPrevention.instance.allowBuild(player, target) == null;
+        return checkPermission(player, target, ClaimPermission.Access);
+    }
+
+    private boolean checkPermission(Player player, Location target, ClaimPermission permission) {
+        PlayerData playerData = GriefPrevention.instance.dataStore.getPlayerData(player.getUniqueId());
+        Claim claim = GriefPrevention.instance.dataStore.getClaimAt(target, false, playerData.lastClaim);
+        if (playerData.ignoreClaims) return true;
+
+        playerData.lastClaim = claim;
+        return claim.checkPermission(player, permission, null) == null;
     }
 }
