@@ -59,7 +59,7 @@ public class GriefPreventionCompat extends ProtectionCompatibility {
     private boolean checkPermission(Player player, Location target, ClaimPermission permission) {
         PlayerData playerData = GriefPrevention.instance.dataStore.getPlayerData(player.getUniqueId());
         Claim claim = GriefPrevention.instance.dataStore.getClaimAt(target, false, playerData.lastClaim);
-        if (playerData.ignoreClaims) return true;
+        if (claim == null || playerData.ignoreClaims) return true;
 
         playerData.lastClaim = claim;
         return claim.checkPermission(player, permission, null) == null;
