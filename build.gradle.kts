@@ -19,6 +19,7 @@ repositories {
     maven("https://maven.enginehub.org/repo/")
     maven("https://repo.papermc.io/repository/maven-public/")
     maven("https://jitpack.io")
+    maven{"https://repo.codemc.org/repository/maven-public/"}
 }
 
 dependencies {
@@ -37,6 +38,7 @@ dependencies {
     compileOnly("com.plotsquared:PlotSquared-Core")
     compileOnly("com.plotsquared:PlotSquared-Bukkit")
     compileOnly("com.github.TechFortress:GriefPrevention:16.18")
+    compileOnly("world.bentobox:bentobox:1.24.1")
 }
 
 java {
