@@ -5,12 +5,13 @@ import org.bukkit.entity.Player;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.java.JavaPlugin;
 
+import io.th0rgal.protectionlib.ProtectionCompatibility;
 import world.bentobox.bentobox.BentoBox;
 import world.bentobox.bentobox.api.flags.Flag;
 import world.bentobox.bentobox.api.user.User;
 import world.bentobox.bentobox.lists.Flags;
 
-public class BentoBoxCompat {
+public class BentoBoxCompat extends ProtectionCompatibility {
 
     BentoBox plugin = BentoBox.getInstance();
 
