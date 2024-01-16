@@ -23,6 +23,7 @@ public class ProtectionLib {
         handleCompatibility("PlotSquared", plugin, (m, p) -> new PlotSquaredCompat(m, p));
         handleCompatibility("CrashClaim", plugin, (m, p) -> new CrashClaimCompat(m, p));
         handleCompatibility("GriefPrevention", plugin, (m, p) -> new GriefPreventionCompat(m, p));
+        handleCompatibility("HuskClaims", plugin, (m, p) -> new HuskClaimCompat(m, p));
     }
 
     public static boolean canBuild(Player player, Location target) {
