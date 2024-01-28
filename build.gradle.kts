@@ -20,27 +20,28 @@ repositories {
     maven("https://maven.enginehub.org/repo/")
     maven("https://repo.papermc.io/repository/maven-public/")
     maven("https://jitpack.io")
-    
+    maven("https://repo.william278.net/releases")
 }
 
 dependencies {
     implementation("world.bentobox:bentobox:2.0.0-SNAPSHOT")
-    compileOnly("org.spigotmc:spigot-api:1.20.1-R0.1-SNAPSHOT")
+    compileOnly("org.spigotmc:spigot-api:1.20.4-R0.1-SNAPSHOT")
     compileOnly("com.sk89q.worldguard:worldguard-bukkit:7.1.0-SNAPSHOT")
-    compileOnly("com.palmergames.bukkit.towny:towny:0.99.2.0")
+    compileOnly("com.palmergames.bukkit.towny:towny:0.100.1.0")
     compileOnly("com.massivecraft:Factions:1.6.9.5-U0.6.11") {
         exclude("org.kitteh:paste-gg-api")
         exclude("com.darkblade12:particleeffect")
         exclude("org.spongepowered:configurate-hocon")
         exclude("com.mojang:brigadier")
     }
-    compileOnly("com.github.angeschossen:LandsAPI:6.29.12")
+    compileOnly("com.github.angeschossen:LandsAPI:6.44.0")
     compileOnly("com.github.WhipDevelopment:CrashClaim:75abe3b665")
     implementation(platform("com.intellectualsites.bom:bom-1.18.x:1.20"))
     compileOnly("com.plotsquared:PlotSquared-Core")
     compileOnly("com.plotsquared:PlotSquared-Bukkit")
     compileOnly("com.github.TechFortress:GriefPrevention:16.18")
-    
+    compileOnly("net.william278.huskclaims:huskclaims-common:1.0.1")
+    compileOnly("net.william278.huskclaims:huskclaims-bukkit:1.0.1")
 }
 
 java {
