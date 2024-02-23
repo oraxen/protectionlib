@@ -66,8 +66,8 @@ publishing {
         maven {
             authentication {
                 credentials(PasswordCredentials::class) {
-                    username = System.getenv("MAVEN_USERNAME") ?: project.findProperty("oraxenUsername") as String
-                    password = System.getenv("MAVEN_PASSWORD") ?: project.findProperty("oraxenPassword") as String
+                    username = System.getenv("MAVEN_USERNAME") ?: (project.findProperty("oraxenUsername") as? String ?: "defaultUsername")
+                    password = System.getenv("MAVEN_PASSWORD") ?: (project.findProperty("oraxenPassword") as? String ?: "defaultPassword")
                 }
                 authentication {
                     create<BasicAuthentication>("basic")
