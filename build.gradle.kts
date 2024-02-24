@@ -13,6 +13,7 @@ version = pluginVersion
 repositories {
     mavenCentral()
     //mavenLocal()
+    maven("https://repo.codemc.org/repository/maven-public/")
     maven("https://hub.spigotmc.org/nexus/content/repositories/snapshots/")
     maven("https://ci.ender.zone/plugin/repository/everything/")
     maven("https://repo.glaremasters.me/repository/towny/")
@@ -23,6 +24,7 @@ repositories {
 }
 
 dependencies {
+    compileOnly("world.bentobox:bentobox:2.0.0-SNAPSHOT")
     compileOnly("org.spigotmc:spigot-api:1.20.4-R0.1-SNAPSHOT")
     compileOnly("com.sk89q.worldguard:worldguard-bukkit:7.1.0-SNAPSHOT")
     compileOnly("com.palmergames.bukkit.towny:towny:0.100.1.0")
