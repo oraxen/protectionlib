@@ -24,10 +24,8 @@ repositories {
     maven {
         url = uri("https://maven.pkg.github.com/Euphillya/Skyllia")
         credentials(PasswordCredentials::class) {
-            //username = System.getenv("MAVEN_USERNAME") ?: (project.findProperty("oraxenUsername") as? String ?: "defaultUsername")
-            //password = System.getenv("MAVEN_PASSWORD") ?: (project.findProperty("oraxenPassword") as? String ?: "defaultPassword")
-            username = System.getenv("GITHUB_USERNAME") ?: ""
-            password = System.getenv("GITHUB_TOKEN") ?: ""
+            username = System.getenv("MAVEN_USERNAME") ?: (project.findProperty("oraxenUsername") as? String ?: "defaultUsername")
+            password = System.getenv("MAVEN_PASSWORD") ?: (project.findProperty("oraxenPassword") as? String ?: "defaultPassword")
         }
     }
 }
