@@ -21,6 +21,15 @@ repositories {
     maven("https://repo.papermc.io/repository/maven-public/")
     maven("https://jitpack.io")
     maven("https://repo.william278.net/releases")
+    maven {
+        url = uri("https://maven.pkg.github.com/Euphillya/Skyllia")
+        credentials(PasswordCredentials::class) {
+            //username = System.getenv("MAVEN_USERNAME") ?: (project.findProperty("oraxenUsername") as? String ?: "defaultUsername")
+            //password = System.getenv("MAVEN_PASSWORD") ?: (project.findProperty("oraxenPassword") as? String ?: "defaultPassword")
+            username = System.getenv("GITHUB_USERNAME") ?: ""
+            password = System.getenv("GITHUB_TOKEN") ?: ""
+        }
+    }
 }
 
 dependencies {
@@ -42,6 +51,7 @@ dependencies {
     compileOnly("com.github.TechFortress:GriefPrevention:16.18")
     compileOnly("net.william278.huskclaims:huskclaims-common:1.0.1")
     compileOnly("net.william278.huskclaims:huskclaims-bukkit:1.0.1")
+    compileOnly("fr.euphyllia.skyllia:api:1.0-RC5.10")
 }
 
 java {

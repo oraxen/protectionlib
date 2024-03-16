@@ -25,6 +25,7 @@ public class ProtectionLib {
         handleCompatibility("GriefPrevention", plugin, (m, p) -> new GriefPreventionCompat(m, p));
         handleCompatibility("HuskClaims", plugin, (m, p) -> new HuskClaimCompat(m, p));
         handleCompatibility("BentoBox", plugin, (m, p) -> new BentoBoxCompat(m, p));
+        handleCompatibility("Skyllia", plugin, (m, p) -> new SkylliaCompat(m, p));
     }
 
     public static boolean canBuild(Player player, Location target) {
