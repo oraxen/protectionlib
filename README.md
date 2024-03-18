@@ -9,8 +9,8 @@
     ❌ A unified library for WorldGuard, Towny, Factions and other protections API</h4>
 
 <p align="center">
-    <a href="https://www.codefactor.io/repository/github/doctaenkoda/protectionlib">
-        <img src="https://www.codefactor.io/repository/github/doctaenkoda/protectionlib/badge" alt="CodeFactor" />
+    <a href="https://www.codefactor.io/repository/github/oraxen/protectionlib">
+        <img src="https://www.codefactor.io/repository/github/oraxen/protectionlib/badge" alt="CodeFactor" />
     </a>
 </p>
 
