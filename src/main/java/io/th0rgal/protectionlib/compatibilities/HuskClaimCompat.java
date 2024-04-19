@@ -1,9 +1,9 @@
 package io.th0rgal.protectionlib.compatibilities;
 
 import io.th0rgal.protectionlib.ProtectionCompatibility;
-import net.william278.cloplib.operation.OperationType;
 import net.william278.huskclaims.api.BukkitHuskClaimsAPI;
 import net.william278.huskclaims.api.HuskClaimsAPI;
+import net.william278.huskclaims.libraries.cloplib.operation.OperationType;
 import net.william278.huskclaims.position.Position;
 import net.william278.huskclaims.trust.TrustLevel;
 import net.william278.huskclaims.user.OnlineUser;

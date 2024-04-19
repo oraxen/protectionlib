@@ -39,8 +39,8 @@ dependencies {
     implementation(platform("com.intellectualsites.bom:bom-1.18.x:1.20"))
     compileOnly("com.plotsquared:PlotSquared-Core")
     compileOnly("com.plotsquared:PlotSquared-Bukkit")
-    compileOnly("com.github.TechFortress:GriefPrevention:16.18.2")
-    compileOnly("net.william278.huskclaims:huskclaims-common:1.1.2")
+    //compileOnly("com.github.TechFortress:GriefPrevention:16.18")
+    implementation(files("libs/GriefPrevention-16.18.jar"))
     compileOnly("net.william278.huskclaims:huskclaims-bukkit:1.1.2")
 }
 
