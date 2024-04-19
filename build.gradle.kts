@@ -34,14 +34,14 @@ dependencies {
         exclude("org.spongepowered:configurate-hocon")
         exclude("com.mojang:brigadier")
     }
-    compileOnly("com.github.angeschossen:LandsAPI:6.44.0")
+    compileOnly("com.github.angeschossen:LandsAPI:7.0.2")
     compileOnly("com.github.WhipDevelopment:CrashClaim:75abe3b665")
     implementation(platform("com.intellectualsites.bom:bom-1.18.x:1.20"))
     compileOnly("com.plotsquared:PlotSquared-Core")
     compileOnly("com.plotsquared:PlotSquared-Bukkit")
-    compileOnly("com.github.TechFortress:GriefPrevention:16.18")
-    compileOnly("net.william278.huskclaims:huskclaims-common:1.0.1")
-    compileOnly("net.william278.huskclaims:huskclaims-bukkit:1.0.1")
+    compileOnly("com.github.TechFortress:GriefPrevention:16.18.2")
+    compileOnly("net.william278.huskclaims:huskclaims-common:1.1.2")
+    compileOnly("net.william278.huskclaims:huskclaims-bukkit:1.1.2")
 }
 
 java {
