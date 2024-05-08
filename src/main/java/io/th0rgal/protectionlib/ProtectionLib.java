@@ -41,7 +41,7 @@ public class ProtectionLib {
             return compatibilities.stream().allMatch(compatibility -> compatibility.canBuild(player, target));
         } catch (Exception e) {
             if (debug) e.printStackTrace();
-            return false;
+            return true;
         }
     }
 
@@ -50,7 +50,7 @@ public class ProtectionLib {
             return compatibilities.stream().allMatch(compatibility -> compatibility.canBreak(player, target));
         } catch (Exception e) {
             if (debug) e.printStackTrace();
-            return false;
+            return true;
         }
     }
 
@@ -59,7 +59,7 @@ public class ProtectionLib {
             return compatibilities.stream().allMatch(compatibility -> compatibility.canInteract(player, target));
         } catch (Exception e) {
             if (debug) e.printStackTrace();
-            return false;
+            return true;
         }
     }
 
@@ -68,7 +68,7 @@ public class ProtectionLib {
             return compatibilities.stream().allMatch(compatibility -> compatibility.canUse(player, target));
         } catch (Exception e) {
             if (debug) e.printStackTrace();
-            return false;
+            return true;
         }
     }
 
