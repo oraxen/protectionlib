@@ -17,15 +17,51 @@ public class ProtectionLib {
 
     @SuppressWarnings("Convert2MethodRef")
     public static void init(JavaPlugin plugin) {
-        handleCompatibility("WorldGuard", plugin, (m, p) -> new WorldGuardCompat(m, p));
-        handleCompatibility("Towny", plugin, (m, p) -> new TownyCompat(m, p));
-        handleCompatibility("Factions", plugin, (m, p) -> new FactionsUuidCompat(m, p));
-        handleCompatibility("Lands", plugin, (m, p) -> new LandsCompat(m, p));
-        handleCompatibility("PlotSquared", plugin, (m, p) -> new PlotSquaredCompat(m, p));
-        handleCompatibility("CrashClaim", plugin, (m, p) -> new CrashClaimCompat(m, p));
-        handleCompatibility("GriefPrevention", plugin, (m, p) -> new GriefPreventionCompat(m, p));
-        handleCompatibility("HuskClaims", plugin, (m, p) -> new HuskClaimCompat(m, p));
-        handleCompatibility("BentoBox", plugin, (m, p) -> new BentoBoxCompat(m, p));
+        try {
+            handleCompatibility("WorldGuard", plugin, (m, p) -> new WorldGuardCompat(m, p));
+        } catch (Exception | NoClassDefFoundError e) {
+            if (debug) e.printStackTrace();
+        }
+        try {
+            handleCompatibility("Towny", plugin, (m, p) -> new TownyCompat(m, p));
+        } catch (Exception | NoClassDefFoundError e) {
+            if (debug) e.printStackTrace();
+        }
+        try {
+            handleCompatibility("Factions", plugin, (m, p) -> new FactionsUuidCompat(m, p));
+        } catch (Exception | NoClassDefFoundError e) {
+            if (debug) e.printStackTrace();
+        }
+        try {
+            handleCompatibility("Lands", plugin, (m, p) -> new LandsCompat(m, p));
+        } catch (Exception | NoClassDefFoundError e) {
+            if (debug) e.printStackTrace();
+        }
+        try {
+            handleCompatibility("PlotSquared", plugin, (m, p) -> new PlotSquaredCompat(m, p));
+        } catch (Exception | NoClassDefFoundError e) {
+            if (debug) e.printStackTrace();
+        }
+        try {
+            handleCompatibility("CrashClaim", plugin, (m, p) -> new CrashClaimCompat(m, p));
+        } catch (Exception | NoClassDefFoundError e) {
+            if (debug) e.printStackTrace();
+        }
+        try {
+            handleCompatibility("GriefPrevention", plugin, (m, p) -> new GriefPreventionCompat(m, p));
+        } catch (Exception | NoClassDefFoundError e) {
+            if (debug) e.printStackTrace();
+        }
+        try {
+            handleCompatibility("HuskClaims", plugin, (m, p) -> new HuskClaimCompat(m, p));
+        } catch (Exception | NoClassDefFoundError e) {
+            if (debug) e.printStackTrace();
+        }
+        try {
+            handleCompatibility("BentoBox", plugin, (m, p) -> new BentoBoxCompat(m, p));
+        } catch (Exception | NoClassDefFoundError e) {
+            if (debug) e.printStackTrace();
+        }
     }
 
     public static void setDebug(boolean debug) {
