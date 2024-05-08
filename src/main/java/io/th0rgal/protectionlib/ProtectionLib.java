@@ -13,6 +13,7 @@ import java.util.Set;
 public class ProtectionLib {
 
     private final static Set<ProtectionCompatibility> compatibilities = new HashSet<>();
+    static boolean debug = false;
 
     @SuppressWarnings("Convert2MethodRef")
     public static void init(JavaPlugin plugin) {
@@ -27,20 +28,48 @@ public class ProtectionLib {
         handleCompatibility("BentoBox", plugin, (m, p) -> new BentoBoxCompat(m, p));
     }
 
+    public static void setDebug(boolean debug) {
+        ProtectionLib.debug = debug;
+    }
+
+    public static boolean getDebug() {
+        return debug;
+    }
+
     public static boolean canBuild(Player player, Location target) {
-        return compatibilities.stream().allMatch(compatibility -> compatibility.canBuild(player, target));
+        try {
+            return compatibilities.stream().allMatch(compatibility -> compatibility.canBuild(player, target));
+        } catch (Exception e) {
+            if (debug) e.printStackTrace();
+            return false;
+        }
     }
 
     public static boolean canBreak(Player player, Location target) {
-        return compatibilities.stream().allMatch(compatibility -> compatibility.canBreak(player, target));
+        try {
+            return compatibilities.stream().allMatch(compatibility -> compatibility.canBreak(player, target));
+        } catch (Exception e) {
+            if (debug) e.printStackTrace();
+            return false;
+        }
     }
 
     public static boolean canInteract(Player player, Location target) {
-        return compatibilities.stream().allMatch(compatibility -> compatibility.canInteract(player, target));
+        try {
+            return compatibilities.stream().allMatch(compatibility -> compatibility.canInteract(player, target));
+        } catch (Exception e) {
+            if (debug) e.printStackTrace();
+            return false;
+        }
     }
 
     public static boolean canUse(Player player, Location target) {
-        return compatibilities.stream().allMatch(compatibility -> compatibility.canUse(player, target));
+        try {
+            return compatibilities.stream().allMatch(compatibility -> compatibility.canUse(player, target));
+        } catch (Exception e) {
+            if (debug) e.printStackTrace();
+            return false;
+        }
     }
 
     private static void handleCompatibility(String pluginName, JavaPlugin mainPlugin, CompatibilityConstructor constructor) {
