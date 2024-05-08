@@ -76,7 +76,11 @@ public class ProtectionLib {
         Plugin plugin = Bukkit.getPluginManager().getPlugin(pluginName);
         if (plugin != null) {
             if (pluginName.equals("Factions") && !checkFactionsCompat()) return;
-            compatibilities.add(constructor.create(mainPlugin, plugin));
+            try {
+                compatibilities.add(constructor.create(mainPlugin, plugin));
+            } catch (Exception e) {
+                if (debug) e.printStackTrace();
+            }
         }
     }
 
