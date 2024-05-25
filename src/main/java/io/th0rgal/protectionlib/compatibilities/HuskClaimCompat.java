@@ -31,7 +31,7 @@ public class HuskClaimCompat extends ProtectionCompatibility {
         Position position = huskClaimsBukkit.getPosition(target);
 
         Optional<TrustLevel> trustLevel = huskClaimsBukkit.getTrustLevelAt(position, onlineUser);
-        return trustLevel.isPresent() && trustLevel.get().getFlags().contains(OperationType.BLOCK_PLACE);
+        return trustLevel.isEmpty() || trustLevel.get().getFlags().contains(OperationType.BLOCK_PLACE);
     }
 
     @Override
@@ -40,7 +40,7 @@ public class HuskClaimCompat extends ProtectionCompatibility {
         Position position = huskClaimsBukkit.getPosition(target);
 
         Optional<TrustLevel> trustLevel = huskClaimsBukkit.getTrustLevelAt(position, onlineUser);
-        return trustLevel.isPresent() && trustLevel.get().getFlags().contains(OperationType.BLOCK_BREAK);
+        return trustLevel.isEmpty() || trustLevel.get().getFlags().contains(OperationType.BLOCK_BREAK);
     }
 
     @Override
@@ -50,7 +50,7 @@ public class HuskClaimCompat extends ProtectionCompatibility {
 
         OperationType operationType = target.getBlock().getType().isBlock() ? OperationType.BLOCK_INTERACT : OperationType.ENTITY_INTERACT;
         Optional<TrustLevel> trustLevel = huskClaimsBukkit.getTrustLevelAt(position, onlineUser);
-        return trustLevel.isPresent() && trustLevel.get().getFlags().contains(operationType);
+        return trustLevel.isEmpty() || trustLevel.get().getFlags().contains(operationType);
     }
 
     @Override
@@ -59,6 +59,6 @@ public class HuskClaimCompat extends ProtectionCompatibility {
         Position position = huskClaimsBukkit.getPosition(target);
 
         Optional<TrustLevel> trustLevel = huskClaimsBukkit.getTrustLevelAt(position, onlineUser);
-        return trustLevel.isPresent() && trustLevel.get().getFlags().contains(OperationType.BLOCK_INTERACT);
+        return trustLevel.isEmpty() || trustLevel.get().getFlags().contains(OperationType.BLOCK_INTERACT);
     }
 }
