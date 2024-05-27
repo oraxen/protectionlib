@@ -62,6 +62,11 @@ public class ProtectionLib {
         } catch (Exception | NoClassDefFoundError e) {
             if (debug) e.printStackTrace();
         }
+        try {
+            handleCompatibility("HuskTowns", plugin, (m, p) -> new HuskTownsCompat(m, p));
+        } catch (Exception | NoClassDefFoundError e) {
+            if (debug) e.printStackTrace();
+        }
     }
 
     public static void setDebug(boolean debug) {

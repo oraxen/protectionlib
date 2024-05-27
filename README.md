@@ -49,7 +49,7 @@ ProtectionLib.canUse(player,location);
 4) Add softdepend to plugin.yml
 
 ```yaml
-   softdepend: [ WorldGuard, Towny, Factions, Lands, PlotSquared, CrashClaim  ]
+   softdepend: [ WorldGuard, Towny, Factions, Lands, PlotSquared, CrashClaim, HuskTowns ]
 ```
 
 # Supported plugins
@@ -59,3 +59,4 @@ ProtectionLib.canUse(player,location);
 - [Lands](https://www.spigotmc.org/resources/lands-land-claim-plugin-grief-prevention-protection-gui-management-nations-wars-1-17-support.53313/) (Paid)
 - [PlotSquared](https://www.spigotmc.org/resources/plotsquared.1177/) (Free)
 - [CrashClaim](https://www.spigotmc.org/resources/crashclaim-claiming-plugin.94037/) (Paid)
+- [HuskTowns](https://www.spigotmc.org/resources/92672) (Paid)

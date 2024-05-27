@@ -42,6 +42,7 @@ dependencies {
     //compileOnly("com.github.TechFortress:GriefPrevention:16.18")
     implementation(files("libs/GriefPrevention-16.18.jar"))
     compileOnly("net.william278.huskclaims:huskclaims-bukkit:1.1.2")
+    compileOnly("net.william278.husktowns:husktowns-bukkit:3.0.4")
 }
 
 java {
