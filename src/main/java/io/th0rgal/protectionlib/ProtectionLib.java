@@ -62,6 +62,11 @@ public class ProtectionLib {
         } catch (Exception | NoClassDefFoundError e) {
             if (debug) e.printStackTrace();
         }
+        try {
+            handleCompatibility("SuperiorSkyblock2", plugin, (m, p) -> new SuperiorSkyblockCompat(m, p));
+        } catch (Exception e) {
+            if (debug) e.printStackTrace();
+        }
     }
 
     public static void setDebug(boolean debug) {
