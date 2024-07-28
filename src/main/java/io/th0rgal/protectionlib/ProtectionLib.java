@@ -43,11 +43,6 @@ public class ProtectionLib {
             if (debug) e.printStackTrace();
         }
         try {
-            handleCompatibility("CrashClaim", plugin, (m, p) -> new CrashClaimCompat(m, p));
-        } catch (Exception | NoClassDefFoundError e) {
-            if (debug) e.printStackTrace();
-        }
-        try {
             handleCompatibility("GriefPrevention", plugin, (m, p) -> new GriefPreventionCompat(m, p));
         } catch (Exception | NoClassDefFoundError e) {
             if (debug) e.printStackTrace();
