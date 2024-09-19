@@ -40,12 +40,13 @@ dependencies {
     compileOnly("com.plotsquared:PlotSquared-Bukkit")
     //compileOnly("com.github.TechFortress:GriefPrevention:16.18")
     implementation(files("libs/GriefPrevention-16.18.jar"))
-    compileOnly("net.william278.huskclaims:huskclaims-bukkit:1.1.2")
+    compileOnly("net.william278.huskclaims:huskclaims-bukkit:1.4")
     compileOnly("net.william278.husktowns:husktowns-bukkit:3.0.4")
+    compileOnly(files("libs/Residence5.1.6.2.jar"))
 }
 
 java {
-    toolchain.languageVersion.set(JavaLanguageVersion.of(17))
+    toolchain.languageVersion.set(JavaLanguageVersion.of(21))
 }
 
 tasks {
