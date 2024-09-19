@@ -63,18 +63,18 @@ public class ProtectionLib {
             if (debug) e.printStackTrace();
         }
         try {
-            handleCompatibility("Residence", plugin, (m, p) -> new HuskTownsCompat(m, p));
+            handleCompatibility("Residence", plugin, (m, p) -> new ResidenceCompat(m, p));
         } catch (Exception | NoClassDefFoundError e) {
             if (debug) e.printStackTrace();
         }
     }
 
-    public static boolean getDebug() {
-        return debug;
-    }
-
     public static void setDebug(boolean debug) {
         ProtectionLib.debug = debug;
+    }
+
+    public static boolean getDebug() {
+        return debug;
     }
 
     public static boolean canBuild(Player player, Location target) {
@@ -125,6 +125,11 @@ public class ProtectionLib {
         }
     }
 
+    @FunctionalInterface
+    private interface CompatibilityConstructor {
+        ProtectionCompatibility create(JavaPlugin mainPlugin, Plugin plugin);
+    }
+
     private static boolean checkFactionsCompat() {
         try {
             Class.forName("com.massivecraft.factions.perms.PermissibleActions");
@@ -134,11 +139,6 @@ public class ProtectionLib {
             Bukkit.getLogger().warning("ProtectionLib will not be able to handle Factions protection.");
             return false;
         }
-    }
-
-    @FunctionalInterface
-    private interface CompatibilityConstructor {
-        ProtectionCompatibility create(JavaPlugin mainPlugin, Plugin plugin);
     }
 
 }

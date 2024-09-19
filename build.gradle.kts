@@ -69,10 +69,8 @@ publishing {
         maven {
             authentication {
                 credentials(PasswordCredentials::class) {
-                    username = System.getenv("MAVEN_USERNAME") ?: (project.findProperty("oraxenUsername") as? String
-                        ?: "defaultUsername")
-                    password = System.getenv("MAVEN_PASSWORD") ?: (project.findProperty("oraxenPassword") as? String
-                        ?: "defaultPassword")
+                    username = System.getenv("MAVEN_USERNAME") ?: (project.findProperty("oraxenUsername") as? String ?: "defaultUsername")
+                    password = System.getenv("MAVEN_PASSWORD") ?: (project.findProperty("oraxenPassword") as? String ?: "defaultPassword")
                 }
                 authentication {
                     create<BasicAuthentication>("basic")
@@ -104,8 +102,7 @@ class PublishData(private val project: Project) {
         System.getenv("GITHUB_SHA")?.substring(0, hashLength) ?: "local"
 
     private fun getCheckedOutBranch(): String =
-        System.getenv("GITHUB_REF")?.replace("refs/heads/", "")
-            ?: grgitService.service.get().grgit.branch.current().name
+        System.getenv("GITHUB_REF")?.replace("refs/heads/", "") ?: grgitService.service.get().grgit.branch.current().name
 
     fun getVersion(): String = getVersion(false)
 

@@ -12,7 +12,6 @@ import org.bukkit.plugin.java.JavaPlugin;
 
 public class FactionsUuidCompat extends ProtectionCompatibility {
     private static FactionsPlugin factions;
-
     public FactionsUuidCompat(JavaPlugin mainPlugin, Plugin plugin) {
         super(mainPlugin, plugin);
         factions = FactionsPlugin.getInstance();
