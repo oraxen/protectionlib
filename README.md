@@ -14,16 +14,22 @@
     </a>
 </p>
 
-
 # What's new?
 
-ProtectionLib introduces four methods to check if a player can build, break or interact with a block at a specific location.
+ProtectionLib introduces four methods to check if a player can build, break or interact with a block at a specific
+location.
 
 ```java
-ProtectionLib.canBuild(player,location);
-ProtectionLib.canBreak(player,location);
-ProtectionLib.canInteract(player,location);
-ProtectionLib.canUse(player,location);
+ProtectionLib.canBuild(player, location);
+ProtectionLib.
+
+canBreak(player, location);
+ProtectionLib.
+
+canInteract(player, location);
+ProtectionLib.
+
+canUse(player, location);
 ```
 
 # Get ProtectionLib
@@ -53,10 +59,12 @@ ProtectionLib.canUse(player,location);
 ```
 
 # Supported plugins
+
 - [WorldGuard](https://dev.bukkit.org/projects/worldguard) (Free)
 - [Towny](https://www.spigotmc.org/resources/towny-advanced.72694/) (Free)
 - [FactionsUUID](https://www.spigotmc.org/resources/factionsuuid.1035/) (Paid)
-- [Lands](https://www.spigotmc.org/resources/lands-land-claim-plugin-grief-prevention-protection-gui-management-nations-wars-1-17-support.53313/) (Paid)
+- [Lands](https://www.spigotmc.org/resources/lands-land-claim-plugin-grief-prevention-protection-gui-management-nations-wars-1-17-support.53313/) (
+  Paid)
 - [PlotSquared](https://www.spigotmc.org/resources/plotsquared.1177/) (Free)
 - [CrashClaim](https://www.spigotmc.org/resources/crashclaim-claiming-plugin.94037/) (Paid)
 - [HuskTowns](https://www.spigotmc.org/resources/92672) (Paid)

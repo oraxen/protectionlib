@@ -1,21 +1,29 @@
 package io.th0rgal.protectionlib.compatibilities;
 
-import com.massivecraft.factions.FactionsPlugin;
-import com.massivecraft.factions.listeners.FactionsBlockListener;
-import com.massivecraft.factions.listeners.FactionsPlayerListener;
-import com.massivecraft.factions.perms.PermissibleActions;
+import com.bekvon.bukkit.residence.Residence;
+import com.bekvon.bukkit.residence.containers.Flags;
+import com.bekvon.bukkit.residence.protection.ClaimedResidence;
 import io.th0rgal.protectionlib.ProtectionCompatibility;
 import org.bukkit.Location;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.java.JavaPlugin;
 
-public class FactionsUuidCompat extends ProtectionCompatibility {
-    private static FactionsPlugin factions;
+public class ResidenceCompat extends ProtectionCompatibility {
 
-    public FactionsUuidCompat(JavaPlugin mainPlugin, Plugin plugin) {
+    Residence plugin = Residence.getInstance();
+
+    public ResidenceCompat(JavaPlugin mainPlugin, Plugin plugin) {
         super(mainPlugin, plugin);
-        factions = FactionsPlugin.getInstance();
+    }
+
+    private boolean canDo(Player player, Location target, Flags flag) {
+        // Check if in world
+        ClaimedResidence res = plugin.getResidenceManager().getByLoc(target);
+        if (res == null) {
+            return true;
+        }
+        return res.getPermissions().playerHas(player, flag, false);
     }
 
     /**
@@ -25,7 +33,7 @@ public class FactionsUuidCompat extends ProtectionCompatibility {
      */
     @Override
     public boolean canBuild(Player player, Location target) {
-        return !factions.worldUtil().isEnabled(target.getWorld()) || FactionsBlockListener.playerCanBuildDestroyBlock(player, target, PermissibleActions.BUILD, false);
+        return canDo(player, target, Flags.build);
     }
 
     /**
@@ -35,7 +43,7 @@ public class FactionsUuidCompat extends ProtectionCompatibility {
      */
     @Override
     public boolean canBreak(Player player, Location target) {
-        return !factions.worldUtil().isEnabled(target.getWorld()) || FactionsBlockListener.playerCanBuildDestroyBlock(player, target, PermissibleActions.DESTROY, false);
+        return canDo(player, target, Flags.destroy);
     }
 
     /**
@@ -45,7 +53,8 @@ public class FactionsUuidCompat extends ProtectionCompatibility {
      */
     @Override
     public boolean canInteract(Player player, Location target) {
-        return !factions.worldUtil().isEnabled(target.getWorld()) || FactionsPlayerListener.canUseBlock(player, target.getBlock().getType(), target, true);
+        // No single interact flag, so just check if player is on their own island
+        return canDo(player, target, Flags.use);
     }
 
     /**
@@ -54,6 +63,7 @@ public class FactionsUuidCompat extends ProtectionCompatibility {
      * @return true if he can use the item at the location
      */
     public boolean canUse(Player player, Location target) {
-        return !factions.worldUtil().isEnabled(target.getWorld()) || FactionsPlayerListener.canInteractHere(player, target);
+        // No single use flag, so just check if player is on their own island
+        return canDo(player, target, Flags.use);
     }
 }
