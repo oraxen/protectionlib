@@ -18,12 +18,8 @@ public class ResidenceCompat extends ProtectionCompatibility {
     }
 
     private boolean canDo(Player player, Location target, Flags flag) {
-        // Check if in world
         ClaimedResidence res = plugin.getResidenceManager().getByLoc(target);
-        if (res==null) {
-            return true;
-        }
-        return res.getPermissions().playerHas(player, flag, false);
+        return res == null || res.getPermissions().playerHas(player, flag, false);
     }
 
     /**
