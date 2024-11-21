@@ -43,6 +43,7 @@ dependencies {
     implementation(files("libs/GriefPrevention-16.18.jar"))
     compileOnly("net.william278.huskclaims:huskclaims-bukkit:1.4")
     compileOnly("net.william278.husktowns:husktowns-bukkit:3.0.4")
+    compileOnly(files("libs/NoBuildPlus-1.4.6.jar"))
     compileOnly(files("libs/Residence5.1.6.2.jar"))
     compileOnly("net.crashcraft:CrashClaim:1.0.43")
 }

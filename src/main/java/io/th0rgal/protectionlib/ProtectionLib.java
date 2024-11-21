@@ -72,6 +72,11 @@ public class ProtectionLib {
         } catch (Exception | NoClassDefFoundError e) {
             if (debug) e.printStackTrace();
         }
+        try {
+            handleCompatibility("NoBuildPlus", plugin, (m, p) -> new NoBuildPlusCompat(m, p));
+        } catch (Exception | NoClassDefFoundError e) {
+            if (debug) e.printStackTrace();
+        }
     }
 
     public static void setDebug(boolean debug) {
