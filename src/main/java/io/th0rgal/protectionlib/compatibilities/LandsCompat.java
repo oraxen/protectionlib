@@ -63,6 +63,6 @@ public class LandsCompat extends ProtectionCompatibility {
 
     private boolean hasFlag(Location location, Player player, RoleFlag flag) {
         LandWorld landWorld = landsIntegration.getWorld(location.getWorld());
-        return landWorld == null || landWorld.hasRoleFlag(landsIntegration.getLandPlayer(player.getUniqueId()), location, flag, null, false);
+        return landWorld == null || landWorld.hasRoleFlag(landsIntegration.getLandPlayer(player.getUniqueId()), location, flag, null, true);
     }
 }
