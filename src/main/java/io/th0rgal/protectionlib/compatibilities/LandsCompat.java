@@ -4,8 +4,6 @@ import io.th0rgal.protectionlib.ProtectionCompatibility;
 import me.angeschossen.lands.api.LandsIntegration;
 import me.angeschossen.lands.api.flags.type.Flags;
 import me.angeschossen.lands.api.flags.type.RoleFlag;
-import me.angeschossen.lands.api.land.Area;
-import me.angeschossen.lands.api.land.Land;
 import me.angeschossen.lands.api.land.LandWorld;
 import org.bukkit.Location;
 import org.bukkit.entity.Player;
@@ -61,6 +59,15 @@ public class LandsCompat extends ProtectionCompatibility {
         return hasFlag(target, player, Flags.INTERACT_GENERAL);
     }
 
+    /**
+     * Checks if a player's role has a flag at the given position.
+     * This does check wilderness flags (/lands admin menu) as well.
+     *
+     * @param location Location of interaction
+     * @param player   Player that seeks to do stuff
+     * @param flag     The Lands flag
+     * @return false if not allowed
+     */
     private boolean hasFlag(Location location, Player player, RoleFlag flag) {
         LandWorld landWorld = landsIntegration.getWorld(location.getWorld());
         return landWorld == null || landWorld.hasRoleFlag(landsIntegration.getLandPlayer(player.getUniqueId()), location, flag, null, true);
