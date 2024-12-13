@@ -6,6 +6,7 @@ import me.angeschossen.lands.api.flags.type.Flags;
 import me.angeschossen.lands.api.flags.type.RoleFlag;
 import me.angeschossen.lands.api.land.Area;
 import me.angeschossen.lands.api.land.Land;
+import me.angeschossen.lands.api.land.LandWorld;
 import org.bukkit.Location;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.Plugin;
@@ -27,8 +28,7 @@ public class LandsCompat extends ProtectionCompatibility {
      */
     @Override
     public boolean canBuild(Player player, Location target) {
-        Land land = getLand(target);
-        return land == null || land.isTrusted(player.getUniqueId()) || hasFlag(target, player, Flags.BLOCK_PLACE);
+        return hasFlag(target, player, Flags.BLOCK_PLACE);
     }
 
     /**
@@ -38,8 +38,7 @@ public class LandsCompat extends ProtectionCompatibility {
      */
     @Override
     public boolean canBreak(Player player, Location target) {
-        Land land = getLand(target);
-        return land == null || land.isTrusted(player.getUniqueId()) || hasFlag(target, player, Flags.BLOCK_BREAK);
+        return hasFlag(target, player, Flags.BLOCK_BREAK);
     }
 
     /**
@@ -49,8 +48,7 @@ public class LandsCompat extends ProtectionCompatibility {
      */
     @Override
     public boolean canInteract(Player player, Location target) {
-        Land land = getLand(target);
-        return land == null || land.isTrusted(player.getUniqueId()) || hasFlag(target, player, Flags.INTERACT_GENERAL);
+        return hasFlag(target, player, Flags.INTERACT_GENERAL);
     }
 
     /**
@@ -58,23 +56,13 @@ public class LandsCompat extends ProtectionCompatibility {
      * @param target Place where the player seeks to use an item at a location
      * @return true if he can use the item at the location
      */
+    @Override
     public boolean canUse(Player player, Location target) {
-        Land land = getLand(target);
-        return land == null || land.isTrusted(player.getUniqueId()) || hasFlag(target, player, Flags.INTERACT_GENERAL);
-    }
-
-    private Land getLand(Location location) {
-        Area area = landsIntegration.getArea(location);
-        if (area == null) return null;
-        return area.getLand();
-    }
-
-    private Area getArea(Location location) {
-        return landsIntegration.getArea(location);
+        return hasFlag(target, player, Flags.INTERACT_GENERAL);
     }
 
     private boolean hasFlag(Location location, Player player, RoleFlag flag) {
-        return getArea(location).hasRoleFlag(player.getUniqueId(), flag);
+        LandWorld landWorld = landsIntegration.getWorld(location.getWorld());
+        return landWorld == null || landWorld.hasRoleFlag(landsIntegration.getLandPlayer(player.getUniqueId()), location, flag, null, false);
     }
-
 }
