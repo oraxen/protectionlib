@@ -61,7 +61,7 @@ public class LandsCompat extends ProtectionCompatibility {
 
     /**
      * Checks if a player's role has a flag at the given position.
-     * This does check wilderness flags (/lands admin menu) as well.
+     * This does check bypass perms and wilderness flags (/lands admin menu) as well.
      *
      * @param location Location of interaction
      * @param player   Player that seeks to do stuff
