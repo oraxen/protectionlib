@@ -55,6 +55,10 @@ public class BentoBoxCompat extends ProtectionCompatibility {
      */
     @Override
     public boolean canInteract(Player player, Location target) {
+        // Check if in world
+        if (!plugin.getIWM().inWorld(target)) {
+            return true;
+        }
         // No single interact flag, so just check if player is on their own island
         return plugin.getIslands().locationIsOnIsland(player, target);
     }
@@ -65,6 +69,10 @@ public class BentoBoxCompat extends ProtectionCompatibility {
      * @return true if he can use the item at the location
      */
     public boolean canUse(Player player, Location target) {
+        // Check if in world
+        if (!plugin.getIWM().inWorld(target)) {
+            return true;
+        }
         // No single use flag, so just check if player is on their own island
         return plugin.getIslands().locationIsOnIsland(player, target);
     }
