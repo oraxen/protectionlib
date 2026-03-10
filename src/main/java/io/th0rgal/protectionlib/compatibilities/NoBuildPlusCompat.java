@@ -5,9 +5,9 @@ import org.bukkit.Location;
 import org.bukkit.entity.Player;
 import org.bukkit.plugin.Plugin;
 import org.bukkit.plugin.java.JavaPlugin;
-import p1xel.nobuildplus.API.NBPAPI;
 import p1xel.nobuildplus.Flags;
 import p1xel.nobuildplus.NoBuildPlus;
+import p1xel.nobuildplus.api.NBPAPI;
 
 public class NoBuildPlusCompat extends ProtectionCompatibility {
 
